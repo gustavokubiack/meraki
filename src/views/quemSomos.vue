@@ -33,7 +33,7 @@ export default {};
 .texto-quemSomos {
   color: #f8f7f2;
   font-family: "Lato", sans-serif;
-  font-size: 35px;
+  font-size: 30px;
   text-align: justify;
 
 }

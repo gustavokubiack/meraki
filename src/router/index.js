@@ -59,6 +59,11 @@ const routes = [
       name: 'Contato',
       component: ()=>import('../views/Contato.vue')
     },
+    {
+      path:'/doacao',
+      name: 'Doação',
+      component: ()=>import('../views/Doação.vue')
+    },
     ]
   },
   {

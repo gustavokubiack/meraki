@@ -5,17 +5,17 @@
         <p class="slogan">Ajude uma causa, voluntarie-se!</p> <br>
  
         <div class="d-flex justify-space-around">
-          <h2 class="texto-home">Quiz para descobrir causa!
+          
           <v-btn class="botao-home" link to="/quiz" >
-               Clique aqui
+               Faça seu Quiz
           </v-btn> 
-          </h2>
+          
 
-          <h2 class="texto-home"> Já sei minha causa!
+          
           <v-btn class="botao-home" link to="/causas">
-              Clique aqui
+              Causas  
           </v-btn>
-          </h2>
+          
           
         </div>
       <br>

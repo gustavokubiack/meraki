@@ -1,6 +1,6 @@
 <template>
   <v-container class="pa-8">
-      <h1 class="titulo-perfil">Quiz</h1>
+      <h1 class="titulo-perfil">Doação</h1>
 
       <p class="texto-perfil">
       </p>
