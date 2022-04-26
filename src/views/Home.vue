@@ -68,6 +68,7 @@ export default {
 <style>
 .botao-home{
   font-family: 'Cardo', serif;
+  color: #f8f8f2;
 }
 
 

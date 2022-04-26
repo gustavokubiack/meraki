@@ -15,7 +15,7 @@
         >
           <v-item v-slot="{ active, toggle }">
             <v-card
-              :color="active ? '#D5F0DB' : 'white'"
+              :color="active ? '#b1d4e0' : '#f8f7f2'"
               :class="active ? 'borderme' : 'borderout'"
               class="d-flex align-center rounded-lg mx-2"
               dark
@@ -30,14 +30,14 @@
                       <div align="center" justify="center">
                         <v-img
                           :src="cetegory.img"
-                          max-height="250"
-                          max-width="200"
+                          max-height="150"
+                          max-width="150"
                           contain
                         ></v-img>
                       </div>
                       <v-list-item-subtitle
-                        :class="active ? 'green--text' : 'black--text'"
-                        class="caption mt-4"
+                        :class="active ? 'black--text' : 'black--text'"
+                        
                         >{{ cetegory.title }}</v-list-item-subtitle
                       >
                     </v-list-item-content>
@@ -80,4 +80,6 @@ export default {
   color: #f8f7f2;
   font-family: "Prata", serif;
 }
+
+
 </style>
