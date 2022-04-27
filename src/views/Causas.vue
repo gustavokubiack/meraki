@@ -10,13 +10,14 @@
           xs="12"
           sm="4"
           md="2"
+          
           v-for="(cetegory, i) in categories"
           :key="i"
         >
           <v-item v-slot="{ active, toggle }">
             <v-card
-              :color="active ? '#b1d4e0' : '#f8f7f2'"
-              :class="active ? 'borderme' : 'borderout'"
+              color= '#f8f7f2'
+              
               class="d-flex align-center rounded-lg mx-2"
               dark
               height="180"
@@ -25,13 +26,13 @@
             >
               <v-row>
                 <v-col cols="12" sm="12">
-                  <v-list-item three-line class="text-center">
+                  <v-list-item three-line class="text-center"  link :to="cetegory.to">
                     <v-list-item-content>
                       <div align="center" justify="center">
                         <v-img
                           :src="cetegory.img"
-                          max-height="150"
-                          max-width="150"
+                          max-height="100"
+                          max-width="100"
                           contain
                         ></v-img>
                       </div>
@@ -56,12 +57,12 @@
 export default {
   data: () => ({
     categories: [
-      { img: "animais.png", title: "Animais" },
-      { img: "crianca.png", title: "Crianças" },
-      { img: "educacao.png", title: "Educação" },
-      { img: "diversidade.png", title: "Diversidade" },
-      { img: "idoso.png", title: "Idosos" },
-      { img: "meio_ambiente.png", title: "Meio Ambiente" },
+      { img: "animais.png", title: "Animais", to:"/causa-animais"},
+      { img: "crianca.png", title: "Crianças", to:"/causa-criancas"},
+      { img: "educacao.png", title: "Educação",to:"/causa-educacao" },
+      { img: "diversidade.png", title: "Diversidade",to:"/causa-diversidade" },
+      { img: "idoso.png", title: "Idosos",to:"/causa-idosos" },
+      { img: "meio_ambiente.png", title: "Meio Ambiente",to:"/causa-meioambiente" },
     ],
   }),
 };

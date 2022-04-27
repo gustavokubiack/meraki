@@ -20,9 +20,9 @@ const routes = [
         component: ()=>import('../views/Quiz.vue')
       },
       {
-      path:'/perfil',
-      name: 'Perfil',
-      component: ()=>import('../views/Perfil.vue')
+      path:'/noticias',
+      name: 'Notícias',
+      component: ()=>import('../views/Noticias.vue')
     },
     {
       path:'/FAQ',
@@ -34,21 +34,8 @@ const routes = [
       name: 'quemsomos',
       component: ()=>import('../views/quemSomos.vue')
     },
-    {
-      path:'/quiz',
-      name: 'Quiz',
-      component: ()=>import('../views/Quiz.vue')
-    },
-    {
-      path:'/quiz',
-      name: 'Quiz',
-      component: ()=>import('../views/Quiz.vue')
-    },
-    {
-      path:'/quiz',
-      name: 'Quiz',
-      component: ()=>import('../views/Quiz.vue')
-    },
+ 
+
     {
       path:'/causas',
       name: 'Causas',
@@ -63,6 +50,36 @@ const routes = [
       path:'/doacao',
       name: 'Doação',
       component: ()=>import('../views/Doação.vue')
+    },
+    {
+      path:'/causa-animais',
+      name: 'CausaAnimais',
+      component: ()=>import('../views/CausaAnimais.vue')
+    },
+    {
+      path:'/causa-criancas',
+      name: 'CausaCriança',
+      component: ()=>import('../views/CausaCrianca.vue')
+    },
+    {
+      path:'/causa-diversidade',
+      name: 'CausaDiversidade',
+      component: ()=>import('../views/CausaDiversidade.vue')
+    },
+    {
+      path:'/causa-educacao',
+      name: 'CausaEducação',
+      component: ()=>import('../views/CausaEducacao.vue')
+    },
+    {
+      path:'/causa-idosos',
+      name: 'CausaIdosos',
+      component: ()=>import('../views/CausaIdosos.vue')
+    },
+    {
+      path:'/causa-meioambiente',
+      name: 'CausaMeioAmbiente',
+      component: ()=>import('../views/CausaMeioAmbiente.vue')
     },
     ]
   },

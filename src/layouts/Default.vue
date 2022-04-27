@@ -59,13 +59,12 @@ export default {
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        { title: "Perfil", icon: "mdi-account-cog", to: "/perfil" },
+        { title: "Notícias", icon: "mdi-newspaper-variant-multiple-outline", to: "/noticias" },
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-contacts", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
         { title: "Doação", icon: "mdi-currency-usd", to: "/doacao" },
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },
-        { title: "Sair", icon: "mdi-exit-to-app", to: "/login" },
       ],
     };
   },
