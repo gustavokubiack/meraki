@@ -1,8 +1,9 @@
 <template>
   <v-item-group mandatory class="mt-n1">
     <v-container>
-      <h1 class="titulo-causas">Causas</h1>
-      <p class="texto-causas">Aqui estão as causas que você pode se voluntariar!</p>
+     
+      <h1 class="titulo-causas">Aqui estão as causas que você pode se voluntariar!</h1>
+      <br><br>
 
       <v-row justify="center" class="space">
         <v-col
@@ -60,7 +61,7 @@ export default {
       { img: "animais.png", title: "Animais", to:"/causa-animais"},
       { img: "crianca.png", title: "Crianças", to:"/causa-criancas"},
       { img: "educacao.png", title: "Educação",to:"/causa-educacao" },
-      { img: "diversidade.png", title: "Diversidade",to:"/causa-diversidade" },
+      { img: "diversidade.png", title: "Diversidade e Inclusão",to:"/causa-diversidade" },
       { img: "idoso.png", title: "Idosos",to:"/causa-idosos" },
       { img: "meio_ambiente.png", title: "Meio Ambiente",to:"/causa-meioambiente" },
     ],
@@ -77,7 +78,7 @@ export default {
 
 .titulo-causas{
   text-align: center;
-  font-size: 40px;
+  font-size: 35px;
   color: #f8f7f2;
   font-family: "Prata", serif;
 }
