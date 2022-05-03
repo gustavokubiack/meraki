@@ -26,43 +26,43 @@ export default {
     return {
       items: [
         {
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          title: "Passear com cachorro",
+          img: "https://images.unsplash.com/photo-1610500796385-3ffc1ae2f046?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+          title: "Clube de leitura infantil",
           to: "/noticias",
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          title: "Passear com cachorro",
+          img: "https://images.unsplash.com/photo-1560785477-d43d2b34e0df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+          title: "Aulas de reforço de Matemática",
           to: "/noticias",
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          title: "Passear com cachorro",
+          img: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+          title: "Alfabetização para jovens, adultos e idosos",
           to: "/noticias",
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
 {
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          title: "Passear com cachorro",
+          img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=932&q=80",
+          title: "Curso de Informática para adolescentes",
           to: "/noticias",
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          title: "Passear com cachorro",
+          img: "https://images.unsplash.com/photo-1441034281545-78296c3a6934?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+          title: "Oficina de Produção Textual",
           to: "/noticias",
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-          title: "Passear com cachorro",
+          img: "https://images.unsplash.com/photo-1565022536102-f7645c84354a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80",
+          title: "Aulas de Inglês em comunidades carentes",
           to: "/noticias",
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",

@@ -1,37 +1,39 @@
 <template>
   <v-app>
-    <v-app-bar app color="#F8F7F2" dark height="100" >
-          
- <v-btn icon min-width="250px" link to="/">
-      <v-img
-        src="@/assets/imagens/logo1.png"
-        max-height="90px"
-        max-width="250px"
-      >
-      </v-img>
+    <v-app-bar app color="#F8F7F2" dark height="100">
+      <v-btn icon min-width="250px" link to="/">
+        <v-img
+          src="@/assets/imagens/logo1.png"
+          max-height="90px"
+          max-width="250px"
+        >
+        </v-img>
       </v-btn>
 
       <v-spacer></v-spacer>
 
-      <v-app-bar-nav-icon color="#050a30" large @click.stop="sidebar = !sidebar"></v-app-bar-nav-icon>
-
+      <v-app-bar-nav-icon
+        color="#050a30"
+        large
+        @click.stop="sidebar = !sidebar"
+      ></v-app-bar-nav-icon>
     </v-app-bar>
-    <v-navigation-drawer color="#f8f8f2" right app v-model="sidebar" :mini-variant.sync="mini">
+    <v-navigation-drawer
+      color="#f8f8f2"
+      right
+      app
+      v-model="sidebar"
+      :mini-variant.sync="mini"
+    >
       <v-list dense color="#F8F8F2" dark height="100">
         <v-list-item>
           <v-list-item-action>
-            <v-icon color="#050a30" @click.stop="sidebar = !sidebar">mdi-chevron-right</v-icon>
+            <v-icon color="#050a30" large @click.stop="sidebar = !sidebar"
+              >mdi-chevron-right</v-icon
+            >
           </v-list-item-action>
-          <v-list-content>
-            <v-img src="@/assets/imagens/logo-sidebar.png"
-        max-height="95px"
-        max-width="200px"
-        ></v-img>
-          </v-list-content>
-
         </v-list-item>
       </v-list>
-
 
       <v-list>
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
@@ -41,11 +43,10 @@
           <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
       </v-list>
-          </v-navigation-drawer>
+    </v-navigation-drawer>
     <v-main class="fundo">
       <router-view></router-view>
     </v-main>
-
   </v-app>
 </template>
 
@@ -57,7 +58,11 @@ export default {
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        { title: "Notícias", icon: "mdi-newspaper-variant-multiple-outline", to: "/noticias" },
+        {
+          title: "Notícias",
+          icon: "mdi-newspaper-variant-multiple-outline",
+          to: "/noticias",
+        },
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-contacts", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
@@ -70,14 +75,14 @@ export default {
 </script>
 
 <style>
-.logo{
+.logo {
   margin-top: 5px;
   margin-left: 40%;
 }
-.fundo{
-    background-color:#050a30 ;
+.fundo {
+  background-color: #050a30;
 }
-.conta{
+.conta {
   padding: auto 9px;
   color: #050a30;
 }
