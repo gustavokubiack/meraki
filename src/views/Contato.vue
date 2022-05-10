@@ -29,9 +29,9 @@ export default {
       {
         icon: "mdi-email-edit-outline",
         title: "ajudemeraki@gmail.com",
-        subtitle: "merakivvoluntariado@gmail.com",
       },
-      { icon: "mdi-phone-classic", title: "(47) 0000-0000" },
+      { icon: "mdi-phone-classic", 
+        title: "(47) 0000-0000" },
       {
         icon: "mdi-facebook",
         title: "Meraki Voluntariado",
