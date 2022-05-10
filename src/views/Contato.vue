@@ -1,19 +1,23 @@
 <template>
   <v-container class="pa-8">
-      <h1 class="titulo-contato">Contato</h1>
-
-
-      <v-list color="#F8f7f2">
-        <p>
-          Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-        </p>
-        <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>{{ item.title }}</v-list-item-content>
-          
-        </v-list-item>
+      <p class="texto-contato">
+        Um dos maiores princípios do Meraki Voluntariado é atender a todos que
+        precisam, o mais rápido possível. Dessa maneira, possuímos os mais
+        diversos meios de comunicação e redes sociais, os quais podem ser
+        utilizadas tanto pelos que desejam se voluntariar por algum projeto,
+        quanto por ONGs e Instituições que querem ter um contato direto com a
+        equipe. Além disso, por meio de nossas redes sociais, todos podem
+        acompanhar o andar das causas que temos disponíveis e ter acesso a
+        diversas imagens e depoimentos de quem já se voluntariou com o Meraki.
+        Seja você o nosso próximo voluntário!
+      </p>
+      <v-list color="#f8f7f2" class="teste">
+      <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
+        <v-list-item-icon>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>{{ item.title }}</v-list-item-content>
+      </v-list-item>
       </v-list>
   </v-container>
 </template>
@@ -22,30 +26,45 @@
 export default {
   data: () => ({
     items: [
-      { icon: "mdi-email-edit-outline", title: "merakivvoluntariado@gmail.com", subtitle: "merakivvoluntariado@gmail.com"},
-      { icon: "mdi-phone-classic", title: "(47) 0000-0000"},
-      { icon: "mdi-facebook", title: "Meraki Voluntariado",to:"https://m.facebook.com/merakivoluntariadoo/" },
-      { icon: "mdi-instagram", title: "@merakivoluntariado",to:"https://www.instagram.com/merakivoluntariado/" },
+      {
+        icon: "mdi-email-edit-outline",
+        title: "ajudemeraki@gmail.com",
+        subtitle: "merakivvoluntariado@gmail.com",
+      },
+      { icon: "mdi-phone-classic", title: "(47) 0000-0000" },
+      {
+        icon: "mdi-facebook",
+        title: "Meraki Voluntariado",
+        to: "https://m.facebook.com/merakivoluntariadoo/",
+      },
+      {
+        icon: "mdi-instagram",
+        title: "@merakivoluntariado",
+        to: "https://www.instagram.com/merakivoluntariado/",
+      },
     ],
   }),
 };
-
-
 </script>
 
 <style>
 .titulo-contato {
   text-align: center;
-  font-family: 'Prata', serif;
+  font-family: "Prata", serif;
   font-size: 40px;
   color: #f8f7f2;
 }
-.texto-contato{
+.texto-contato {
   color: #f8f7f2;
-  font-family: 'Lato', serif;
+  font-family: "Lato", serif;
   font-size: 30px;
-  text-align: justify; 
-}
+  text-align: justify;
+  padding-top: 50px;
 
+}
+.teste{
+  color: #f8f7f2;
+  
+}
 
 </style>

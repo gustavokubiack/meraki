@@ -19,13 +19,13 @@
       ></v-app-bar-nav-icon>
     </v-app-bar>
     <v-navigation-drawer
-      color="#f8f8f2"
+      color="#f8f7f2"
       right
       app
       v-model="sidebar"
       :mini-variant.sync="mini"
     >
-      <v-list dense color="#F8F8F2" dark height="100">
+      <v-list dense color="#F8F7F2" dark height="100">
         <v-list-item>
           <v-list-item-action>
             <v-icon color="#050a30" large @click.stop="sidebar = !sidebar"
@@ -35,7 +35,7 @@
         </v-list-item>
       </v-list>
 
-      <v-list>
+      <v-list color="#f8f7f2">
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
