@@ -81,6 +81,11 @@ const routes = [
       name: 'CausaMeioAmbiente',
       component: ()=>import('../views/CausaMeioAmbiente.vue')
     },
+    {
+      path:'/perfil',
+      name: 'Perfil',
+      component: ()=>import('../views/Perfil.vue')
+    },
     ]
   },
   {

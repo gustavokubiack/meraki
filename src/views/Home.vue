@@ -66,8 +66,18 @@
         ></v-carousel-item>
       </v-carousel>
     </v-col>
-
-    
+    <br>
+    <h1 class="titulo-rodape">Fale conosco</h1>
+    <v-card shaped>
+      <v-list color="#f8f7f2" class="teste">
+        <v-list-item v-for="icon of icons" :key="icon.title" link :to="icon.to">
+          <v-list-item-icon>
+            <v-icon>{{ icon.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>{{ icon.title }}</v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-card>
   </v-container>
 </template>
 
@@ -75,24 +85,41 @@
 export default {
   data() {
     return {
+      icons: [
+        {
+          icon: "mdi-email-edit-outline",
+          title: "ajudemeraki@gmail.com",
+        },
+        { icon: "mdi-phone-classic", title: "(47) 0000-0000" },
+        {
+          icon: "mdi-facebook",
+          title: "Meraki Voluntariado",
+          to: "https://m.facebook.com/merakivoluntariadoo/",
+        },
+        {
+          icon: "mdi-instagram",
+          title: "@merakivoluntariado",
+          to: "https://www.instagram.com/merakivoluntariado/",
+        },
+      ],
       items: [
         {
-          src: "https://images.unsplash.com/photo-1590874023110-f82d4c63b599?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+          src: "https://images.unsplash.com/photo-1494005612480-90f50fd9376f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=8",
         },
         {
-          src: "https://images.unsplash.com/photo-1494005612480-90f50fd9376f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=80",
+          src: "https://images.unsplash.com/photo-1521493959102-bdd6677fdd81?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470",
         },
         {
-          src: "https://cdn.pixabay.com/photo/2021/11/06/00/32/volunteer-6772196_960_720.jpg",
+          src: "https://images.unsplash.com/photo-1565615833231-e8c91a38a012?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470",
         },
         {
-          src: "https://images.unsplash.com/photo-1612708474132-9c9b981c016b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
+          src: "https://images.unsplash.com/photo-1566937863719-c6c62f9ee69a?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470",
         },
         {
           src: "https://images.unsplash.com/photo-1504283985083-b5c0ea827551?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
         },
         {
-          src: "https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+          src: "https://images.unsplash.com/photo-1643321611132-15f7b8a63347?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
         },
       ],
       categories: [
@@ -137,5 +164,12 @@ export default {
 .texto-home {
   color: #f8f8f2;
   font-family: "Prata", serif;
+}
+.titulo-rodape {
+  color: #f8f8f2;
+  font-family: "Prata", serif;
+  font-size: 30px;
+  margin-top: 40px;
+  margin-left: 15px;
 }
 </style>

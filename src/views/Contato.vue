@@ -11,6 +11,7 @@
         diversas imagens e depoimentos de quem já se voluntariou com o Meraki.
         Seja você o nosso próximo voluntário!
       </p>
+      <v-card shaped>
       <v-list color="#f8f7f2" class="teste">
       <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
         <v-list-item-icon>
@@ -19,6 +20,7 @@
         <v-list-item-content>{{ item.title }}</v-list-item-content>
       </v-list-item>
       </v-list>
+      </v-card>
   </v-container>
 </template>
 

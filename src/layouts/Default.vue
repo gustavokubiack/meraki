@@ -26,10 +26,10 @@
       :mini-variant.sync="mini"
     >
       <v-list dense color="#F8F7F2" dark height="100">
-        <v-list-item>
+        <v-list-item class="btn-layout">
           <v-list-item-action>
             <v-icon color="#050a30" large @click.stop="sidebar = !sidebar"
-              >mdi-chevron-right</v-icon
+              >mdi-chevron-double-right</v-icon
             >
           </v-list-item-action>
         </v-list-item>
@@ -58,11 +58,7 @@ export default {
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        {
-          title: "Notícias",
-          icon: "mdi-newspaper-variant-multiple-outline",
-          to: "/noticias",
-        },
+        {title: "Meu perfil", icon: "mdi-account-check", to: "/perfil"},
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-contacts", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
@@ -91,5 +87,9 @@ export default {
 }
 .v-list-item__icon {
   color: #050a30;
+}
+
+.btn-layout{
+  padding-top: 13px;
 }
 </style>
