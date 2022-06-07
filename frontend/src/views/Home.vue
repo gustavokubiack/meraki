@@ -2,7 +2,7 @@
   <v-container class="pa-8" fluid>
     <v-item-group mandatory class="mt-n1">
       <v-container>
-        <h1 class="titulo-home">Ajude um causa, voluntarie-se!</h1>
+        <h1 class="titulo-home">Ajude uma causa, voluntarie-se!</h1>
         <br />
         <br />
 
@@ -55,6 +55,13 @@
         </v-row>
       </v-container>
     </v-item-group>
+    <p class="titulo-home">Clique aqui para entrar na sua conta</p>
+    <div align="center" justify="center"> 
+    <v-btn large class="d-flex align content center">Cadastrar-se/Login</v-btn>
+    </div>
+
+    
+
 
     <br /><br />
     <v-col cols="12">
@@ -172,4 +179,5 @@ export default {
   margin-top: 40px;
   margin-left: 15px;
 }
+
 </style>

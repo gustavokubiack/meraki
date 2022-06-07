@@ -10,8 +10,7 @@
         </v-img>
       </v-btn>
 
-      <v-spacer></v-spacer>
-
+      <v-spacer></v-spacer>  
       <v-app-bar-nav-icon
         color="#050a30"
         large
@@ -64,6 +63,7 @@ export default {
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
         { title: "Doação", icon: "mdi-currency-usd", to: "/doacao" },
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },
+        {title: "Login", icon:"mdi-login", to: "/login"},
       ],
     };
   },

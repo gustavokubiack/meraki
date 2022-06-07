@@ -14,15 +14,17 @@ const routes = [
         name: 'Home',
         component: Home
       },
+      
+    
       {
         path:'/quiz',
         name: 'Quiz',
         component: ()=>import('../views/Quiz.vue')
       },
       {
-      path:'/noticias',
-      name: 'Notícias',
-      component: ()=>import('../views/Noticias.vue')
+      path:'/login',
+      name: 'Login',
+      component: ()=>import('../views/Login.vue')
     },
     {
       path:'/FAQ',
