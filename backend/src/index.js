@@ -1,10 +1,11 @@
 const express = require('express')
 const {auth} = require('express-openid-connect')
 const {requiresAuth} = require ('express-openid-connect')
+require('dotenv').config({ path: '/home/aluno/teste/merakivoluntariado/backend/.env' });
 
 // Creating an App
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3339
 
 // Routes
 app.get("/", (req, res)=>{
@@ -19,10 +20,10 @@ app.get("/teste", (req, res)=>{
 const config = {
     authRequired: false,
     auth0Logout: true,
-    secret: 'kjdasbdlkjbsçkafjbklsdjfbkçdsjbfçsdanbhkfdsnbjlfhsvdksdjbf',
-    baseURL: 'http://localhost:3000',
-    clientID: 'S8xaSrayiQjtTBPxur7eX9I8c0m2byKj',
-    issuerBaseURL: 'https://dev-s0qct-48.us.auth0.com'
+    secret: process.env.SECRET,
+    baseURL: process.env.BASEURL,
+    clientID: process.env.CLIENTID,
+    issuerBaseURL: process.env.ISSUERURL
   };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
