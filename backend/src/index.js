@@ -1,7 +1,7 @@
 const express = require('express')
 const {auth} = require('express-openid-connect')
 const {requiresAuth} = require ('express-openid-connect')
-require('dotenv').config({ path: '/home/aluno/teste/merakivoluntariado/backend/.env' });
+require('dotenv').config({ path: '/home/aluno/merakivoluntariado/backend/.env' });
 
 // Creating an App
 const app = express()
