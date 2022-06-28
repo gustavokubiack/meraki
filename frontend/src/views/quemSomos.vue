@@ -1,8 +1,7 @@
-<template class="teste">
+<template>
   <v-container class="pa-8">
-    <h1 class="titulo">Quem Somos</h1>
-    <br> <br>
-    <div class="texto-quemSomos">
+    <h1 class="titulo">Conheça a nossa história</h1>
+    <div class="texto-quemSomos pt-6">
       <p>
         Do grego, Meraki significa ”dar parte de si em algo” e “fazer algo com a
         alma”. Definição perfeita para aqueles que não apenas estão por inteiro

@@ -3,8 +3,6 @@
     <v-item-group mandatory class="mt-n1">
       <v-container>
         <h1 class="titulo-home">Ajude uma causa, voluntarie-se!</h1>
-        <br />
-        <br />
 
         <v-row justify="center" class="space">
           <v-col
@@ -60,10 +58,6 @@
     <v-btn large class="d-flex align content center">Cadastrar-se/Login</v-btn>
     </div>
 
-    
-
-
-    <br /><br />
     <v-col cols="12">
       <v-carousel hide-delimiters cycle>
         <v-carousel-item
@@ -73,42 +67,18 @@
         ></v-carousel-item>
       </v-carousel>
     </v-col>
-    <br>
-    <h1 class="titulo-rodape">Fale conosco</h1>
-    <v-card shaped>
-      <v-list color="#f8f7f2" class="teste">
-        <v-list-item v-for="icon of icons" :key="icon.title" link :to="icon.to">
-          <v-list-item-icon>
-            <v-icon>{{ icon.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>{{ icon.title }}</v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-card>
+    <Footer/>
   </v-container>
 </template>
 
 <script>
+import Footer from "../components/Footer.vue";
 export default {
+  components:{
+    Footer
+  },  
   data() {
     return {
-      icons: [
-        {
-          icon: "mdi-email-edit-outline",
-          title: "ajudemeraki@gmail.com",
-        },
-        { icon: "mdi-phone-classic", title: "(47) 0000-0000" },
-        {
-          icon: "mdi-facebook",
-          title: "Meraki Voluntariado",
-          to: "https://m.facebook.com/merakivoluntariadoo/",
-        },
-        {
-          icon: "mdi-instagram",
-          title: "@merakivoluntariado",
-          to: "https://www.instagram.com/merakivoluntariado/",
-        },
-      ],
       items: [
         {
           src: "https://images.unsplash.com/photo-1494005612480-90f50fd9376f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=8",
