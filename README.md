@@ -29,7 +29,7 @@ npm i
 cd src
 ```
 
-### Rodar o nodemon
+### Rodar o servidor
 ```
 nodemon index
 ```
