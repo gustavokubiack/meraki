@@ -8,10 +8,7 @@
         diversos meios de comunicação e redes sociais, os quais podem ser
         utilizadas tanto pelos que desejam se voluntariar por algum projeto,
         quanto por ONGs e Instituições que querem ter um contato direto com a
-        equipe. Além disso, por meio de nossas redes sociais, todos podem
-        acompanhar o andar das causas que temos disponíveis e ter acesso a
-        diversas imagens e depoimentos de quem já se voluntariou com o Meraki.
-        Seja você o nosso próximo voluntário!
+        equipe.
       </p>
     </div>
     <Footer/>

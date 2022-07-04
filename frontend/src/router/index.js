@@ -34,7 +34,7 @@ const routes = [
     {
       path:'/quemsomos',
       name: 'quemsomos',
-      component: ()=>import('../views/quemSomos.vue')
+      component: ()=>import('../views/QuemSomos.vue')
     },
  
 
@@ -54,32 +54,32 @@ const routes = [
       component: ()=>import('../views/Doação.vue')
     },
     {
-      path:'/causa-animais',
+      path:'/causaAnimais',
       name: 'CausaAnimais',
       component: ()=>import('../views/CausaAnimais.vue')
     },
     {
-      path:'/causa-criancas',
+      path:'/causacriancas',
       name: 'CausaCriança',
       component: ()=>import('../views/CausaCrianca.vue')
     },
     {
-      path:'/causa-diversidade',
+      path:'/causaDiversidade',
       name: 'CausaDiversidade',
       component: ()=>import('../views/CausaDiversidade.vue')
     },
     {
-      path:'/causa-educacao',
+      path:'/causaEducacao',
       name: 'CausaEducação',
       component: ()=>import('../views/CausaEducacao.vue')
     },
     {
-      path:'/causa-idosos',
+      path:'/causaIdosos',
       name: 'CausaIdosos',
       component: ()=>import('../views/CausaIdosos.vue')
     },
     {
-      path:'/causa-meioambiente',
+      path:'/causaMeioAmbiente',
       name: 'CausaMeioAmbiente',
       component: ()=>import('../views/CausaMeioAmbiente.vue')
     },
@@ -87,6 +87,11 @@ const routes = [
       path:'/perfil',
       name: 'Perfil',
       component: ()=>import('../views/Perfil.vue')
+    },
+    {
+      path:'/adm',
+      name: 'Adm',
+      component: ()=>import('../views/Adm.vue')
     },
     ]
   },

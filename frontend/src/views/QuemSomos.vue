@@ -11,15 +11,6 @@
         efervescente vontade de ajudar, com ONGs que precisam dessa ajuda por
         eles ofertada.
       </p>
-      
-      <p>
-        Estatisticamente falando, podemos afirmar que mais de 50 instituições,
-        espalhadas pelo Brasil inteiro, já contaram com a ajuda de voluntários
-        que conheceram a instituição por meio do Meraki Voluntariado. Hoje, além
-        do nosso site, estamos presentes também na grande maioria das redes
-        sociais, buscando dessa maneira, aproximar nossos usuários cada vez mais
-        da experiência incrível que é ser um voluntário!
-      </p>
     </div>
   </v-container>
 </template>

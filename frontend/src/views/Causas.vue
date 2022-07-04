@@ -61,12 +61,12 @@
 export default {
   data: () => ({
     categories: [
-      { img: "animais.png", title: "Animais", to:"/causa-animais"},
-      { img: "crianca.png", title: "Crianças", to:"/causa-criancas"},
-      { img: "educacao.png", title: "Educação",to:"/causa-educacao" },
-      { img: "diversidade.png", title: "Diversidade e Inclusão",to:"/causa-diversidade" },
-      { img: "idoso.png", title: "Idosos",to:"/causa-idosos" },
-      { img: "meio_ambiente.png", title: "Meio Ambiente",to:"/causa-meioambiente" },
+      { img: "animais.png", title: "Animais", to:"/causaAnimais"},
+      { img: "crianca.png", title: "Crianças", to:"/causaCriancas"},
+      { img: "educacao.png", title: "Educação",to:"/causaEducacao" },
+      { img: "diversidade.png", title: "Diversidade e Inclusão",to:"/causaDiversidade" },
+      { img: "idoso.png", title: "Idosos",to:"/causaIdosos" },
+      { img: "meio_ambiente.png", title: "Meio Ambiente",to:"/causaMeioAmbiente" },
     ],
   }),
 };
