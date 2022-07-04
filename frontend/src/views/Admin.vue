@@ -8,8 +8,8 @@
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="primary"
-          dark
+          color="#f8f7f2"
+          
           v-bind="attrs"
           v-on="on"
           
@@ -20,7 +20,7 @@
       </template>
       <v-card>
         <v-card-title>
-          <span class="text-h5">User Profile</span>
+          <span class="text-h5 ">Adicionar Causa</span>
         </v-card-title>
         <v-card-text>
           <v-container>
@@ -97,18 +97,18 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
-            color="blue darken-1"
+         color="#050a30"
             text
             @click="dialog = false"
           >
-            Close
+            Fechar
           </v-btn>
           <v-btn
-            color="blue darken-1"
+          color="#050a30"
             text
             @click="dialog = false"
           >
-            Save
+            Salvar
           </v-btn>
         </v-card-actions>
       </v-card>

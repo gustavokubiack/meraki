@@ -89,9 +89,9 @@ const routes = [
       component: ()=>import('../views/Perfil.vue')
     },
     {
-      path:'/adm',
-      name: 'Adm',
-      component: ()=>import('../views/Adm.vue')
+      path:'/admin',
+      name: 'Admin',
+      component: ()=>import('../views/Admin.vue')
     },
     ]
   },
