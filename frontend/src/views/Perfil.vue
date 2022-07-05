@@ -14,7 +14,6 @@ export default {
 
 <style>
 .titulo-perfil{
-  text-align: center;
   font-family: 'Prata', serif;
   font-size: 40px;
   color: #f8f7f2;
