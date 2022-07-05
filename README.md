@@ -6,7 +6,7 @@ O Meraki Voluntariado é um site criado com o objetivo de conectar instituiçõe
 ```
 cd frontend
 ```
-### Instalar as dependências no front
+### Instalar as dependências 
 ```
 npm i
 ```
@@ -20,7 +20,7 @@ npm run serve
 ```
 cd backend
 ```
-### Instalar as dependências no backend
+### Instalar as dependências do backend
 ```
 npm i
 ```
