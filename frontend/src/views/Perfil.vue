@@ -3,6 +3,7 @@
   <div class="d-flex justify-center">
   <h1 class="titulo-perfil">Perfil</h1>
   </div>
+  
   </v-container>
 </template>
 

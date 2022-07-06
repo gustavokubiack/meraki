@@ -7,7 +7,6 @@
   
   <div class="d-flex justify-center"> 
       <div>
-        <v-btn class="mx-2" large link to="">Pessoal</v-btn>
         <v-btn class="mx-2" large link to="">Institucional</v-btn>
       </div>
   </div>

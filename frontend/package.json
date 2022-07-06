@@ -6,8 +6,9 @@
     "serve": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service serve",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service build",
     "lint": "export NODE_OPTIONS=--openssl-legacy-provider && vue-cli-service lint"
-},
+  },
   "dependencies": {
+    "@auth0/auth0-spa-js": "^1.22.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

@@ -1,10 +1,11 @@
 <template>
   <v-container class="pa-8" fluid>
+
     <v-item-group mandatory class="mt-n1">
       <v-container>
         <h1 class="titulo-home">Ajude uma causa, voluntarie-se!</h1>
 
-        <v-row justify="center" class="space">
+        <v-row justify="center" class="space mt-6">
           <v-col
             cols="12"
             xs="12"
@@ -53,9 +54,13 @@
         </v-row>
       </v-container>
     </v-item-group>
-    <p class="titulo-home">Clique aqui para entrar na sua conta</p>
-    <div align="center" justify="center"> 
-    <v-btn large class="d-flex align content center">Cadastrar-se/Login</v-btn>
+    <div class="mt-8 d-flex justify-center"> 
+          <!-- Check that the SDK client is not currently loading before accessing is methods -->
+    <div v-if="!$auth.loading">
+      <!-- show login when not authenticated -->
+      <v-btn v-if="!$auth.isAuthenticated" @click="login">Login/Cadastrar-se</v-btn>
+      <!-- show logout when authenticated -->
+    </div>
     </div>
 
     <v-col cols="12">
@@ -105,6 +110,18 @@ export default {
       ],
     };
   },
+    methods: {
+    // Log the user in
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    // Log the user out
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin
+      });
+    }
+  }
 };
 </script>
 

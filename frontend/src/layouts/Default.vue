@@ -17,6 +17,7 @@
       fab
       small
       link to ="/admin"
+      v-if="$auth.isAuthenticated"
       ><v-icon >mdi-hammer-wrench</v-icon>
     </v-btn>
       <v-app-bar-nav-icon
@@ -49,6 +50,13 @@
           </v-list-item-icon>
           <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
+
+        <v-list-item v-if="$auth.isAuthenticated" @click="logout">
+          <v-list-item-icon>
+            <v-icon>mdi-logout</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>Sair</v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main class="fundo">
@@ -66,15 +74,23 @@ export default {
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
         {title: "Meu perfil", icon: "mdi-account-check", to: "/perfil"},
+                {title: "Instituições", icon:"mdi-home-plus", to: "/login"},
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-contacts", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
         { title: "Doação", icon: "mdi-currency-usd", to: "/doacao" },
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },
-        {title: "Login", icon:"mdi-login", to: "/login"},
-      ],
+        
+      ]
     };
   },
+  methods:{
+    logout(){
+      this.$auth.logout({
+        returnTo: window.location.origin
+      })
+    }
+  }
 };
 </script>
 
