@@ -1,6 +1,5 @@
 <template>
   <v-container class="pa-8" fluid>
-
     <v-item-group mandatory class="mt-n1">
       <v-container>
         <h1 class="titulo-home">Ajude uma causa, voluntarie-se!</h1>
@@ -54,13 +53,15 @@
         </v-row>
       </v-container>
     </v-item-group>
-    <div class="mt-8 d-flex justify-center"> 
-          <!-- Check that the SDK client is not currently loading before accessing is methods -->
-    <div v-if="!$auth.loading">
-      <!-- show login when not authenticated -->
-      <v-btn v-if="!$auth.isAuthenticated" @click="login">Login/Cadastrar-se</v-btn>
-      <!-- show logout when authenticated -->
-    </div>
+    <div class="mt-8 d-flex justify-center">
+      <!-- Check that the SDK client is not currently loading before accessing is methods -->
+      <div v-if="!$auth.loading">
+        <!-- show login when not authenticated -->
+        <v-btn v-if="!$auth.isAuthenticated" @click="login">
+          <v-icon dark left>mdi-account-plus</v-icon>
+          Login</v-btn
+        >
+      </div>
     </div>
 
     <v-col cols="12">
@@ -72,16 +73,16 @@
         ></v-carousel-item>
       </v-carousel>
     </v-col>
-    <Footer/>
+    <Footer />
   </v-container>
 </template>
 
 <script>
 import Footer from "../components/Footer.vue";
 export default {
-  components:{
-    Footer
-  },  
+  components: {
+    Footer,
+  },
   data() {
     return {
       items: [
@@ -110,7 +111,7 @@ export default {
       ],
     };
   },
-    methods: {
+  methods: {
     // Log the user in
     login() {
       this.$auth.loginWithRedirect();
@@ -118,10 +119,10 @@ export default {
     // Log the user out
     logout() {
       this.$auth.logout({
-        returnTo: window.location.origin
+        returnTo: window.location.origin,
       });
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -166,5 +167,4 @@ export default {
   margin-top: 40px;
   margin-left: 15px;
 }
-
 </style>
