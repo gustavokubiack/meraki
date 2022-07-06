@@ -16,6 +16,11 @@
           <v-card-text>
             <v-container>
               <v-row>
+                <v-file-input
+                  accept="image/*"
+                  label="Imagem"
+                  color="#050a30"
+                ></v-file-input>
                 <v-col cols="12">
                   <v-text-field
                     color="#050a30"
