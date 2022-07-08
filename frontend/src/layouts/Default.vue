@@ -44,6 +44,12 @@
       </v-list>
 
       <v-list color="#f8f7f2">
+          <v-list-item v-if="$auth.isAuthenticated" to="/perfil">
+          <v-list-item-icon>
+            <v-icon>mdi-account</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>Meu Perfil</v-list-item-content>
+        </v-list-item>
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -73,8 +79,7 @@ export default {
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        {title: "Meu perfil", icon: "mdi-account-check", to: "/perfil"},
-                {title: "Instituições", icon:"mdi-home-plus", to: "/login"},
+        {title: "Instituições", icon:"mdi-home-plus", to: "/login"},
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-contacts", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
