@@ -81,7 +81,7 @@ export default {
         { title: "Home", icon: "mdi-home", to: "/" },
         {title: "Instituições", icon:"mdi-home-plus", to: "/login"},
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
-        { title: "Contato", icon: "mdi-contacts", to: "/contato" },
+        { title: "Contato", icon: "mdi-at", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
         { title: "Doação", icon: "mdi-currency-usd", to: "/doacao" },
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },

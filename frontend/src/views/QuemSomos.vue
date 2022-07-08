@@ -12,6 +12,11 @@
         eles ofertada.
       </p>
     </div>
+
+      <div>
+    <v-img  src="@/assets/imagens/faixa.png"
+    max-width="1800" max-height="400"></v-img>
+  </div>
   </v-container>
 </template>
 
