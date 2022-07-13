@@ -24,15 +24,11 @@ cd backend
 ```
 npm i
 ```
-### Entrar no diretório src
-```
-cd src
-```
-
 ### Rodar o servidor
 ```
-nodemon index
+npm run dev
 ```
+
 
 
 
