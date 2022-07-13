@@ -26,3 +26,4 @@ app.use('/api/post', require('./routes/routes'))
 
 //starting server
 app.listen(port, () => {console.log(`Server started on http://localhost:${port}`)});
+
