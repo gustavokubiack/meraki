@@ -1,145 +1,79 @@
 <template>
-  <v-container class="pa-8">
-    <h1 class="titulo-admin">Painel de controle</h1>
-    <v-row justify="right" class="pa-8">
-      <v-dialog v-model="dialog" persistent max-width="600px">
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn color="#f8f7f2" v-bind="attrs" v-on="on" fab>
-            <v-icon dark>mdi-plus</v-icon>
-          </v-btn>
-        </template>
-        <v-card>
-          <v-card-title>
-            <span class="add-causa">Adicionar Causa</span>
-          </v-card-title>
-
-          <v-card-text>
-            <v-container>
-              <v-row>
-                <v-file-input
-                  accept="image/*"
-                  label="Imagem"
-                  color="#050a30"
-                ></v-file-input>
-                <v-col cols="12">
-                  <v-text-field
-                    color="#050a30"
-                    label="Título"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    color="#050a30"
-                    label="Descrição"
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <v-select
-                    color="#050a30"
-                    :items="[
-                      'AC',
-                      'AL',
-                      'AP',
-                      'AM',
-                      'BA',
-                      'CE',
-                      'DF',
-                      'ES',
-                      'GO',
-                      'MA',
-                      'MT',
-                      'MS',
-                      'MG',
-                      'PA',
-                      'PB',
-                      'PR',
-                      'PE',
-                      'PI',
-                      'RJ',
-                      'RN',
-                      'RS',
-                      'RO',
-                      'RR',
-                      'SC',
-                      'SP',
-                      'SE',
-                      'TO',
-                    ]"
-                    label="Estado"
-                    required
-                  ></v-select>
-                </v-col>
-                <v-col cols="12" sm="6" md="4">
-                  <v-text-field
-                    color="#050a30"
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    label="Cidade"
-                    persistent-hint
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12">
-                  <v-text-field
-                    label="Bairro"
-                    required
-                    color="#050a30"
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <v-text-field
-                    label="Rua"
-                    color="#050a30"
-                    required
-                  ></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="6" md="4">
-                  <v-text-field
-                    color="#050a30"
-                    cols="12"
-                    sm="6"
-                    md="4"
-                    label="Número"
-                    persistent-hint
-                    required
-                  ></v-text-field>
-                </v-col>
-
-                <v-col cols="12" sm="6">
-                  <v-select
-                    color="#050a30"
-                    :items="[
-                      'Animais',
-                      'Crianças',
-                      'Diversidade',
-                      'Educação',
-                      'Idosos',
-                      'Meio Ambiente',
-                    ]"
-                    label="Tipo da Causa"
-                  ></v-select>
-                </v-col>
-              </v-row>
-            </v-container>
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn color="#050a30" text @click="dialog = false"> Fechar </v-btn>
-            <v-btn color="#050a30" text @click="dialog = false"> Salvar </v-btn>
-          </v-card-actions>
+  <v-container>
+        <v-alert border="left" close-text="Close Alert" color="green accent-4" dark dismissible v-if="this.$route.params.message">{{this.$route.params.message}}"</v-alert>
+    <v-row no-gutters>
+      <v-col sm="10" class="mx-auto">
+        <v-card class="pa-5">
+          <v-card-title class="d-flex justify-center"
+            >Adicionar nova causa</v-card-title>
+          <v-divider></v-divider>
+          <v-form ref="form" @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
+                      <v-file-input
+            @change="selectFile"
+              :rules="rules"
+              show-size
+              counter
+              multiple
+              label="Selecione uma imagem"
+            ></v-file-input>
+            <v-text-field label="Título" v-model="post.title" :rules="rules"></v-text-field>
+            <v-text-field label="Descrição" v-model="post.description" :rules="rules"></v-text-field>
+            <v-text-field label="Data da causa" v-model="post.dateCause" :rules="rules"></v-text-field>
+            <v-text-field label="Estado" v-model="post.state" :rules="rules"></v-text-field>
+            <v-text-field label="Cidade" v-model="post.city" :rules="rules"></v-text-field>
+            <v-text-field label="Bairro" v-model="post.neighborhood" :rules="rules"></v-text-field>
+            <v-text-field label="Rua" v-model="post.street" :rules="rules"></v-text-field>
+            <v-text-field label="Número " v-model="post.numberHouse" :rules="rules"></v-text-field>
+            <v-btn type="submit" class="mt-3">Salvar</v-btn>
+          </v-form>
         </v-card>
-      </v-dialog>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import API from "../api";
 export default {
   data: () => ({
-    dialog: false,
+    rules: [(value) => !!value || "Campo obrigatório"],
+    post: {
+      image: "",
+      title: "",
+      description: "",
+      dateCause: "",
+      state: "",
+      city: "",
+      neighborhood: "",
+      street: "",
+      numberHouse: "",
+    },
+    image: "",
   }),
+  methods: {
+    selectFile(file) {
+      this.image = file[0];
+    },
+    async submitForm() {
+    const formData = new FormData();
+    formData.append("image", this.image);
+    formData.append("title", this.post.title);
+    formData.append("description", this.post.description);
+    formData.append("dateCause", this.post.dateCause);
+    formData.append("state", this.post.state);
+    formData.append("city", this.post.city);
+    formData.append("neighborhood", this.post.neighborhood);
+    formData.append("street", this.post.street);
+    formData.append("numberHouse", this.post.numberHouse);
+    if (this.$refs.form.validate()) {
+      const response = await API.addPost(formData);
+      this.$router.push({
+        name: "CausaMeioAmbiente",
+        params: { message: response.message },
+      });
+    }
+  },
+  },
 };
 </script>
 

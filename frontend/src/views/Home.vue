@@ -2,6 +2,7 @@
   <v-container class="pa-8" fluid>
     <v-item-group mandatory class="mt-n1">
       <v-container>
+        
         <h1 class="titulo-home">Ajude uma causa, voluntarie-se!</h1>
 
         <v-row justify="center" class="space mt-6">
