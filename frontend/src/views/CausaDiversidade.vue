@@ -32,41 +32,6 @@ export default {
           subtitle:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         },
-        {
-          img: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-          title: "Atendimento psicológico para mulheres",
-          to: "/noticias",
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1459908676235-d5f02a50184b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-          title: "Curso de Artes",
-          to: "/noticias",
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-{
-          img: "https://images.unsplash.com/photo-1565615833231-e8c91a38a012?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-          title: "Passeio com cadeirantes",
-          to: "/noticias",
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1628717341663-0007b0ee2597?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
-          title: "Distribuição de alimentos para moradores de rua",
-          to: "/noticias",
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-        {
-          img: "https://images.unsplash.com/photo-1565562195689-739680900319?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-          title: "Aulas de Libras",
-          to: "/noticias",
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
       ],
     };
   },

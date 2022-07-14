@@ -38,7 +38,6 @@ module.exports = class API {
 
     }
 
-
     // update a post
     static async updatePost(req, res) {
         const id = req.params.id;
@@ -55,10 +54,10 @@ module.exports = class API {
         }
         const newPost = req.body;
         newPost.image = new_image;
-        
+
         try {
             await Post.findByIdAndUpdate(id, newPost);
-            res.status(200).json({message: 'Post updated successfully'});
+            res.status(200).json({ message: 'Post updated successfully' });
         } catch (err) {
             res.status(404).json({ message: err });
         }
@@ -67,6 +66,19 @@ module.exports = class API {
 
     // delete a post
     static async deletePost(req, res) {
-        res.send('Delete a post');
+        const id = req.params.id;
+        try {
+            const result = await Post.findByIdAndDelete(id);
+            if (result.image != '') {
+                try {
+                    fs.unlinkSync('./uploads/' + result.image);
+                } catch (err) {
+                    console.log(err);
+                }
+            }
+            res.status(200).json({ message: 'Post deleted successfully' });
+        } catch (err) {
+            res.status(404).json({message: err.message})
+        }
     }
 }

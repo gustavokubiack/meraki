@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -92,6 +93,11 @@ const routes = [
       path:'/admin',
       name: 'Admin',
       component: ()=>import('../views/Admin.vue')
+    },
+    {
+      path:'/post/:id',
+      name: 'post',
+      component: ()=>import('../views/Post.vue')
     },
     ]
   },
