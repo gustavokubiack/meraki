@@ -13,7 +13,7 @@
             class="d-flex justify-center"
           ></v-img>
           <v-card-text class="text-justify">{{ post.description }}</v-card-text>
-          <v-card-text>Data:{{ post.dateCause }}</v-card-text>
+          <v-card-text>Data: {{ post.dateCause }}</v-card-text>
           <v-card-text>Estado: {{ post.state }}</v-card-text>
           <v-card-text>Cidade: {{ post.city }}</v-card-text>
           <v-card-text

@@ -101,6 +101,7 @@ export default {
     formData.append("neighborhood", this.post.neighborhood);
     formData.append("street", this.post.street);
     formData.append("numberHouse", this.post.numberHouse);
+    formData.append("chosenCause", this.post.chosenCause);
     if (this.$refs.form.validate()) {
       const response = await API.addPost(formData);
       this.$router.push({
