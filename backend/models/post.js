@@ -11,6 +11,7 @@ const postSchema = new mongoose.Schema({
   street: String,
   numberHouse: String,
   dateCause: String,
+  ong: String,
   created: {
     type: Date,
     default: Date.now,

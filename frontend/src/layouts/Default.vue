@@ -44,7 +44,7 @@
       </v-list>
 
       <v-list color="#f8f7f2">
-          <v-list-item v-if="$auth.isAuthenticated" to="/perfil">
+          <v-list-item v-if="$auth.isAuthenticated" to="/paineldecontrole">
           <v-list-item-icon>
             <v-icon>mdi-account</v-icon>
           </v-list-item-icon>

@@ -99,6 +99,11 @@ const routes = [
       name: 'post',
       component: ()=>import('../views/Post.vue')
     },
+    {
+      path:'/paineldecontrole',
+      name: 'PainelDeControle',
+      component: ()=>import('../views/PainelDeControle.vue')
+    },
     ]
   },
   {

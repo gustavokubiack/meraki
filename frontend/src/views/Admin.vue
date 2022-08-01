@@ -7,7 +7,7 @@
           <v-card-title
             ><span class="add-causa"> Adicionar causa </span></v-card-title>
           <v-divider></v-divider>
-          <v-form ref="form" @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
+          <v-form  ref="form" @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
             <v-file-input
             @change="selectFile"
               :rules="rules"
@@ -15,47 +15,52 @@
               counter
               multiple
               label="Imagem"
+              color="#050a30"
             ></v-file-input>
             <v-col cols="12">
-              <v-text-field label="Título" v-model="post.title" :rules="rules"></v-text-field>
+              <v-text-field maxlength="36" color="#050a30" label="Título" v-model="post.title" :rules="quantTitle"></v-text-field>
             </v-col>
 
             <v-col>
-              <v-text-field label="Descrição" v-model="post.description" :rules="rules"></v-text-field>
+              <v-textarea minlength=100 color="#050a30" label="Descrição" v-model="post.description" :rules="quantDescription"></v-textarea>
             </v-col>
 
             <v-col class="d-flex">
               <v-col>
-                <v-text-field label="Data" v-model="post.dateCause" :rules="rules"></v-text-field>
+                <v-text-field color="#050a30" label="Data" v-model="post.dateCause" :rules="rules"></v-text-field>
               </v-col>
 
               <v-col>
-                <v-text-field label="Causa" v-model="post.chosenCause" :rules="rules"></v-text-field>
-              </v-col>
-            </v-col>
-
-            <v-col class="d-flex">
-              <v-col>
-                <v-text-field label="Estado" v-model="post.state" :rules="rules"></v-text-field>
-              </v-col>
-              <v-col>
-                <v-text-field label="Cidade" v-model="post.city" :rules="rules"></v-text-field>
+                <v-select :items="items" color="#050a30" label="Causa" v-model="post.chosenCause" :rules="rules"></v-select>
               </v-col>
             </v-col>
 
             <v-col class="d-flex">
               <v-col>
-                <v-text-field label="Rua" v-model="post.street" :rules="rules"></v-text-field>
+                <v-text-field color="#050a30" label="Estado" v-model="post.state" :rules="rules"></v-text-field>
+              </v-col>
+              <v-col>
+                <v-text-field color="#050a30" label="Cidade" v-model="post.city" :rules="rules"></v-text-field>
+              </v-col>
+            </v-col>
+
+            <v-col class="d-flex">
+              <v-col>
+                <v-text-field color="#050a30" label="Rua" v-model="post.street" :rules="rules"></v-text-field>
               </v-col>
               
               <v-col>
-                <v-text-field label="Número" v-model="post.numberHouse" :rules="rules"></v-text-field>
+                <v-text-field color="#050a30" label="Número" v-model="post.numberHouse" :rules="rules"></v-text-field>
               </v-col>
             
               <v-col>
-                <v-text-field label="Bairro" v-model="post.neighborhood" :rules="rules"></v-text-field>
+                <v-text-field color="#050a30" label="Bairro" v-model="post.neighborhood" :rules="rules"></v-text-field>
               </v-col>
             </v-col>
+
+              <v-col>
+                <v-text-field color="#050a30" label="Criado por" v-model="post.ong" :rules="rules"></v-text-field>
+              </v-col>
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="#050a30" text type="submit">Adicionar</v-btn>
@@ -72,6 +77,13 @@ import API from "../api/api.js";
 export default {
   data: () => ({
     rules: [(value) => !!value || "Campo obrigatório"],
+    
+    quantDescription: [(value) => value.length >= 104 && value.length <= 300 || "Quantidade de caracteres inválida"], 
+    
+    quantTitle: [(value) => value.length <= 35 || "Quantidade de caracteres inválida"], 
+    
+    items: ['Animais', 'Crianças', 'Diversidade', 'Educação', 'Idosos', 'Meio Ambiente'],
+    
     post: {
       image: "",
       title: "",
@@ -83,6 +95,7 @@ export default {
       street: "",
       numberHouse: "",
       chosenCause:"",
+      ong: "",
     },
     image: "",
   }),
@@ -102,10 +115,11 @@ export default {
     formData.append("street", this.post.street);
     formData.append("numberHouse", this.post.numberHouse);
     formData.append("chosenCause", this.post.chosenCause);
+    formData.append("ong", this.post.ong);
     if (this.$refs.form.validate()) {
       const response = await API.addPost(formData);
       this.$router.push({
-        name: "CausaMeioAmbiente",
+        name: "PainelDeControle",
         params: { message: response.message },
       });
     }
