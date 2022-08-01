@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import API from "../api";
+import API from "../api/api.js";
 export default {
   data: () => ({
     rules: [(value) => !!value || "Campo obrigatório"],
