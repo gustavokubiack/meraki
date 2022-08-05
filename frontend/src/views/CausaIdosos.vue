@@ -1,42 +1,54 @@
 <template>
   <v-container class="pa-8">
     <v-row class="space" align="center">
-      <v-col cols="12" xs="12" sm="4" v-for="(item, i) in items" :key="i">
-        <v-card class="mx-auto" max-width="400">
-          <v-img class="white--text align-end" height="200px" :src="item.img">
-          </v-img>
+      <v-col
+        col="12"
+        xs="12"
+        sm="4"
+        class="pa-3"
+        v-for="post in posts"
+        :key="post._id"
+      >
+        <v-card class="mx-auto" max-width="400" link>
+          <v-img
+            class="white--text align-end"
+            height="200px"
+            :src="`/${post.image}`"
+          ></v-img>
           <v-card-text class="text--primary">
-            <h3>{{ item.title }}</h3>
+            <h3>{{ post.title }}</h3>
 
-            <div>{{ item.subtitle }}</div>
+            <p class="text-justify">
+              {{ post.description.substring(0, 100) + "..." }}
+            </p>
           </v-card-text>
-
           <v-card-actions>
-            <v-btn link :to="item.to" color="#050a30" text> Detalhes </v-btn>
+            <v-btn
+              color="#050a30"
+              text
+              :to="{ name: 'post', params: { id: post._id } }"
+            >
+              Detalhes
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
   </v-container>
 </template>
-
 <script>
+import API from "../api/api.js";
+
 export default {
   data() {
     return {
-      items: [
-        {
-          img: "https://images.unsplash.com/photo-1575473301724-e655a40bf431?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-          title: "Oficina de Dança",
-          to: "/noticias",
-          subtitle:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-      ],
+      posts: [],
     };
+  },
+  async created() {
+    this.posts = await API.getAllSeniorsPosts();
   },
 };
 </script>
 
-<style>
-</style>
+<style></style>

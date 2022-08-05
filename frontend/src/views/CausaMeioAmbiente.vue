@@ -36,9 +36,9 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
 import API from "../api/api.js";
+
 export default {
   data() {
     return {
@@ -46,7 +46,7 @@ export default {
     };
   },
   async created() {
-    this.posts = await API.getAllPost();
+    this.posts = await API.getAllEnvironmentPosts();
   },
 };
 </script>
