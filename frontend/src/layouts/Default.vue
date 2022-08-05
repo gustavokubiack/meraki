@@ -10,16 +10,17 @@
         </v-img>
       </v-btn>
 
-      <v-spacer></v-spacer> 
-     <v-btn
-      depressed
-      color="#050a30"
-      fab
-      small
-      link to ="/admin"
-      v-if="$auth.isAuthenticated"
-      ><v-icon >mdi-hammer-wrench</v-icon>
-    </v-btn>
+      <v-spacer></v-spacer>
+      <v-btn
+        depressed
+        color="#050a30"
+        fab
+        small
+        link
+        to="/adicionar-causa"
+        v-if="$auth.isAuthenticated"
+        ><v-icon>mdi-plus</v-icon>
+      </v-btn>
       <v-app-bar-nav-icon
         color="#050a30"
         large
@@ -44,11 +45,11 @@
       </v-list>
 
       <v-list color="#f8f7f2">
-          <v-list-item v-if="$auth.isAuthenticated" to="/paineldecontrole">
+        <v-list-item v-if="$auth.isAuthenticated" to="/painel-de-controle">
           <v-list-item-icon>
-            <v-icon>mdi-account</v-icon>
+            <v-icon>mdi-hammer-wrench</v-icon>
           </v-list-item-icon>
-          <v-list-item-content>Meu Perfil</v-list-item-content>
+          <v-list-item-content>Painel de Controle</v-list-item-content>
         </v-list-item>
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
           <v-list-item-icon>
@@ -79,23 +80,22 @@ export default {
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        {title: "Instituições", icon:"mdi-home-plus", to: "/login"},
+        { title: "Instituições", icon: "mdi-home-plus", to: "/login" },
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-at", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
         { title: "Doação", icon: "mdi-currency-usd", to: "/doacao" },
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },
-        
-      ]
+      ],
     };
   },
-  methods:{
-    logout(){
+  methods: {
+    logout() {
       this.$auth.logout({
-        returnTo: window.location.origin
-      })
-    }
-  }
+        returnTo: window.location.origin,
+      });
+    },
+  },
 };
 </script>
 
@@ -118,7 +118,7 @@ export default {
   color: #050a30;
 }
 
-.btn-layout{
+.btn-layout {
   padding-top: 13px;
 }
 </style>
