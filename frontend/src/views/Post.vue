@@ -1,6 +1,6 @@
 <template>
   <v-container class="pa-8">
-    <v-card class="pa-8">
+    <v-card class="pa-8" id="card">
       <v-row>
         <v-col>
           <v-img
@@ -90,5 +90,9 @@ export default {
 .informationText {
   font-size: 18px;
   margin-top: 10px;
+}
+
+#card {
+  background-color: #f8f7f2;
 }
 </style>

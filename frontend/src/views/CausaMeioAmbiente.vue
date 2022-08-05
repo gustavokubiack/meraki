@@ -9,7 +9,7 @@
         v-for="post in posts"
         :key="post._id"
       >
-        <v-card class="mx-auto" max-width="400" link>
+        <v-card class="mx-auto" color="#f8f7f2" max-width="400" link>
           <v-img
             class="white--text align-end"
             height="200px"
