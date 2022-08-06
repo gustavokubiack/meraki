@@ -25,7 +25,7 @@
           <v-card-actions>
             <v-btn
               color="#050a30"
-              text
+              dark
               :to="{ name: 'post', params: { id: post._id } }"
             >
               Detalhes

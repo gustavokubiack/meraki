@@ -131,7 +131,7 @@
             </v-col>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn color="#050a30" text type="submit">Adicionar</v-btn>
+              <v-btn dark color="#050a30">Adicionar</v-btn>
             </v-card-actions>
           </v-form>
         </v-card>
