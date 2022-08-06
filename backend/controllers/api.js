@@ -37,8 +37,10 @@ module.exports = class API {
     try {
       const posts = await Post.find({ chosenCause: "Diversidade" });
       res.status(200).json(posts);
-    } catch {
-      res.status(404).json({ message: err });
+    } catch (err) {
+      {
+        res.status(404).json({ message: err });
+      }
     }
   }
 
@@ -47,7 +49,7 @@ module.exports = class API {
     try {
       const posts = await Post.find({ chosenCause: "Educação" });
       res.status(200).json(posts);
-    } catch {
+    } catch (err) {
       res.status(404).json({ message: err });
     }
   }
@@ -57,7 +59,7 @@ module.exports = class API {
     try {
       const posts = await Post.find({ chosenCause: "Idosos" });
       res.status(200).json(posts);
-    } catch {
+    } catch (err) {
       res.status(404).json({ message: err });
     }
   }
@@ -66,7 +68,7 @@ module.exports = class API {
     try {
       const posts = await Post.find({ chosenCause: "Meio Ambiente" });
       res.status(200).json(posts);
-    } catch {
+    } catch (err) {
       res.status(404).json({ message: err });
     }
   }

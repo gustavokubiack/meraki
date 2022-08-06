@@ -17,6 +17,7 @@ let upload = multer({
   storage: storage,
 }).single("image");
 
+// api routes
 router.get("/", API.fetchAllPosts);
 router.get("/animal", API.fetchAllAnimalPosts);
 router.get("/criancas", API.fetchAllChildrenPosts);
@@ -29,4 +30,5 @@ router.post("/", upload, API.createPost);
 router.patch("/:id", upload, API.updatePost);
 router.delete("/:id", API.deletePost);
 
+// ong routes
 module.exports = router;
