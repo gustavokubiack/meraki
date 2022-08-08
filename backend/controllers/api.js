@@ -2,7 +2,7 @@ const Post = require("../models/post");
 const fs = require("fs");
 
 module.exports = class API {
-  // fetch all posts
+  // buscando todos os posts
   static async fetchAllPosts(req, res) {
     try {
       const posts = await Post.find();
@@ -12,7 +12,7 @@ module.exports = class API {
     }
   }
 
-  // fetch all animal posts
+  // buscando todos os posts de animais
   static async fetchAllAnimalPosts(req, res) {
     try {
       const posts = await Post.find({ chosenCause: "Animais" });
@@ -22,7 +22,7 @@ module.exports = class API {
     }
   }
 
-  // fetch all children posts
+  // buscando todos os posts de crianças
   static async fetchAllChildrenPosts(req, res) {
     try {
       const posts = await Post.find({ chosenCause: "Crianças" });
@@ -32,7 +32,7 @@ module.exports = class API {
     }
   }
 
-  // fetch all diversity posts
+  // buscando todos os posts de diversidade
   static async fetchAllDiversityPosts(req, res) {
     try {
       const posts = await Post.find({ chosenCause: "Diversidade" });
@@ -44,7 +44,7 @@ module.exports = class API {
     }
   }
 
-  // fetch all education posts
+  // buscando todos os posts de educação
   static async fetchAllEducationPosts(req, res) {
     try {
       const posts = await Post.find({ chosenCause: "Educação" });
@@ -54,7 +54,7 @@ module.exports = class API {
     }
   }
 
-  // fetch all seniors posts
+  // buscando todos os posts de idosos
   static async fetchAllSeniorPosts(req, res) {
     try {
       const posts = await Post.find({ chosenCause: "Idosos" });
@@ -63,7 +63,7 @@ module.exports = class API {
       res.status(404).json({ message: err });
     }
   }
-  // fetch all environment posts
+  // buscando todos os posts de meio ambiente
   static async fetchAllEnvironmentPosts(req, res) {
     try {
       const posts = await Post.find({ chosenCause: "Meio Ambiente" });
@@ -73,7 +73,7 @@ module.exports = class API {
     }
   }
 
-  // fetch post by id
+  // buscando post pelo ID
   static async fetchPostByID(req, res) {
     const id = req.params.id;
     try {
@@ -84,7 +84,7 @@ module.exports = class API {
     }
   }
 
-  // create a post
+  // criando um post
   static async createPost(req, res) {
     const post = req.body;
     const imagename = req.file.filename;
@@ -97,7 +97,7 @@ module.exports = class API {
     }
   }
 
-  // update a post
+  // atualizando um post
   static async updatePost(req, res) {
     const id = req.params.id;
     let new_image = "";
@@ -122,7 +122,7 @@ module.exports = class API {
     }
   }
 
-  // delete a post
+  // deletando um post
   static async deletePost(req, res) {
     const id = req.params.id;
     try {

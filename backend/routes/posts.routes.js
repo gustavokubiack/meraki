@@ -3,7 +3,7 @@ const router = express.Router();
 const API = require("../controllers/api");
 const multer = require("multer");
 
-//multer middleware for image upload
+// upload da imagem com multer
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "./uploads/");
@@ -17,7 +17,7 @@ let upload = multer({
   storage: storage,
 }).single("image");
 
-// api routes
+// rotas dos posts
 router.get("/all", API.fetchAllPosts);
 router.get("/animal", API.fetchAllAnimalPosts);
 router.get("/criancas", API.fetchAllChildrenPosts);

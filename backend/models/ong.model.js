@@ -47,20 +47,18 @@ ongSchema.methods.generateAuthToken = async function () {
   return token;
 };
 
-// ==>
+// ==> verificar se existe o email e senha do usuário
 ongSchema.statics.findByCredentials = async function (email, password) {
-  const ong = await ong.findOne({ email });
-  console.log(ong);
-
+  const ong = await Ong.findOne({ email });
   if (!ong) {
-    throw new Error({ error: "Login inválido" });
+    throw new Error("Usuário não encontrado!");
   }
-
-  const isPasswordMatch = await bcrypt.compare(password, ong.password);
-  if (!isPasswordMatch) {
-    throw new Error({ error: "Login inválido" });
+  const isMatch = await bcrypt.compare(password, ong.password);
+  if (!isMatch) {
+    throw new Error("Senha incorreta!");
   }
   return ong;
 };
 
-module.exports = mongoose.model("Ong", ongSchema);
+const Ong = mongoose.model("Ong", ongSchema);
+module.exports = Ong;
