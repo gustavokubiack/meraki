@@ -9,11 +9,13 @@ const ongSchema = new mongoose.Schema({
   name: { type: String, maxlength: 50, required: true },
   email: { type: String, maxlength: 30, required: true },
   password: { type: String, required: true },
-  state: String,
-  city: String,
-  neighborhood: String,
-  street: String,
-  numberHouse: String,
+  address: {
+    state: String,
+    city: String,
+    neighborhood: String,
+    street: String,
+    numberHouse: String,
+  },
   telephone: String,
   tokens: [
     {
