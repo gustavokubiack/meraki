@@ -95,7 +95,7 @@ export default {
           src: "https://images.unsplash.com/photo-1643321611132-15f7b8a63347?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170",
         },
       ],
-      categories: [{ img: "11.png", title: "Causas", to: "/causas" }],
+      categories: [{ img: "causaHome.png", title: "Causas", to: "/causas" }],
     };
   },
   methods: {

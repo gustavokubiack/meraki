@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const API = require("../controllers/api");
+const API = require("../controllers/post.controllers");
 const multer = require("multer");
 
 // upload da imagem com multer

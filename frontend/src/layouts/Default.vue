@@ -3,7 +3,7 @@
     <v-app-bar app color="#F8F7F2" dark height="100">
       <v-btn icon min-width="250px" link to="/">
         <v-img
-          src="@/assets/imagens/logo1.png"
+          src="@/assets/images/logo.png"
           max-height="90px"
           max-width="250px"
         >

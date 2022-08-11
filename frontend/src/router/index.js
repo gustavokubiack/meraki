@@ -22,6 +22,11 @@ const routes = [
         component: () => import("../views/admin/CadastroOng.vue"),
       },
       {
+        path: "/login-ong", // ==> essa rota não vai ser padrão (default)
+        name: "LoginOng",
+        component: () => import("../views/admin/LoginOng.vue"),
+      },
+      {
         path: "/tela-cadastro",
         name: "TelaCadastro",
         component: () => import("../views/default/TelaCadastro.vue"),

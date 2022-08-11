@@ -1,11 +1,16 @@
 <template>
   <v-container class="pa-8">
-    <v-card> Tela de Login</v-card>
+    <CadastroOngComp />
   </v-container>
 </template>
 
 <script>
-export default {};
+import CadastroOngComp from "@/components/cadastro/CadastroOngComp.vue";
+export default {
+  components: {
+    CadastroOngComp,
+  },
+};
 </script>
 
 <style></style>

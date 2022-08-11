@@ -13,10 +13,13 @@
       </p>
     </div>
 
-      <div>
-    <v-img  src="@/assets/imagens/faixa.png"
-    max-width="1800" max-height="400"></v-img>
-  </div>
+    <div>
+      <v-img
+        src="@/assets/images/faixa.png"
+        max-width="1800"
+        max-height="400"
+      ></v-img>
+    </div>
   </v-container>
 </template>
 
@@ -30,7 +33,6 @@ export default {};
   font-family: "Lato", sans-serif;
   font-size: 30px;
   text-align: justify;
-
 }
 .titulo {
   text-align: center;

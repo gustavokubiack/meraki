@@ -1,5 +1,4 @@
 const Post = require("../models/post");
-const Ong = require("../models/ong.model");
 const fs = require("fs");
 
 module.exports = class API {
