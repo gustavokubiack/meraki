@@ -11,18 +11,17 @@
         equipe.
       </p>
     </div>
-    <Footer/>
+    <Footer />
   </v-container>
 </template>
 
 <script>
-import Footer from  '../components/Footer.vue'
+import Footer from "@/components/Footer.vue";
 export default {
   components: {
-    Footer
-  }
+    Footer,
+  },
 };
-
 </script>
 
 <style>
@@ -31,7 +30,6 @@ export default {
   font-family: "Lato", sans-serif;
   font-size: 30px;
   text-align: justify;
-
 }
 .titulo {
   text-align: center;

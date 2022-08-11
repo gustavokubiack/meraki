@@ -9,7 +9,7 @@
         v-for="post in posts"
         :key="post._id"
       >
-        <v-card class="mx-auto" max-width="400" link>
+        <v-card class="mx-auto" color="#f8f7f2" max-width="400" link>
           <v-img
             class="white--text align-end"
             height="200px"
@@ -36,9 +36,9 @@
     </v-row>
   </v-container>
 </template>
-
 <script>
-import API from "../api/api.js";
+import API from "@/services/api.js";
+
 export default {
   data() {
     return {
@@ -46,7 +46,7 @@ export default {
     };
   },
   async created() {
-    this.posts = await API.getAllPost();
+    this.posts = await API.getAllChildrenPosts();
   },
 };
 </script>

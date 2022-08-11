@@ -1,4 +1,5 @@
 const Post = require("../models/post");
+const Ong = require("../models/ong.model");
 const fs = require("fs");
 
 module.exports = class API {
@@ -12,6 +13,10 @@ module.exports = class API {
     }
   }
 
+  // busca todos os posts de uma ong
+  static async fetchAllPostsByOng(req, res) {
+    // fazer a busca pelo id da ong
+  }
   // buscando todos os posts de animais
   static async fetchAllAnimalPosts(req, res) {
     try {

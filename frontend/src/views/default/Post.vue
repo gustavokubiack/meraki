@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import API from "../api/api.js";
+import API from "@/services/api.js";
 export default {
   data() {
     return {
