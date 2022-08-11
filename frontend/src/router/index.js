@@ -16,14 +16,14 @@ const routes = [
       },
 
       {
-        path: "/quiz",
-        name: "Quiz",
-        component: () => import("../views/Quiz.vue"),
+        path: "/cadastro-ong",
+        name: "CadastroOng",
+        component: () => import("../views/CadastroOng.vue"),
       },
       {
-        path: "/login",
-        name: "Login",
-        component: () => import("../views/Login.vue"),
+        path: "/tela-cadastro",
+        name: "TelaCadastro",
+        component: () => import("../views/TelaCadastro.vue"),
       },
       {
         path: "/FAQ",
@@ -89,7 +89,7 @@ const routes = [
       {
         path: "/adicionar-causa",
         name: "adicionarcausa",
-        component: () => import("../views/Admin.vue"),
+        component: () => import("../views/AdicionarCausa.vue"),
       },
       {
         path: "/post/:id",
