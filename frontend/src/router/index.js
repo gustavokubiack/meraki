@@ -16,17 +16,6 @@ const routes = [
       },
 
       {
-        // essa rota não vai ser padrão (default)
-        path: "/cadastro-ong",
-        name: "CadastroOng",
-        component: () => import("../views/admin/CadastroOng.vue"),
-      },
-      {
-        path: "/login-ong", // ==> essa rota não vai ser padrão (default)
-        name: "LoginOng",
-        component: () => import("../views/admin/LoginOng.vue"),
-      },
-      {
         path: "/tela-cadastro",
         name: "TelaCadastro",
         component: () => import("../views/default/TelaCadastro.vue"),
@@ -104,6 +93,17 @@ const routes = [
     path: "/",
     component: () => import("@/layouts/Blank"),
     children: [],
+  },
+
+  {
+    path: "/login-ong",
+    name: "LoginOng",
+    component: () => import("@/components/login/LoginOngComp.vue"),
+  },
+  {
+    path: "/cadastro-ong",
+    name: "LoginOng",
+    component: () => import("@/components/cadastro/CadastroOngComp.vue"),
   },
 ];
 const router = new VueRouter({

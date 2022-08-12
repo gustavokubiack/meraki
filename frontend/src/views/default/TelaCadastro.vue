@@ -7,7 +7,7 @@
 
     <div class="d-flex justify-center">
       <div>
-        <v-btn class="mx-2" large link to="cadastro-ong">
+        <v-btn class="mx-2" large link to="login-ong">
           <v-icon left dark>mdi-account-multiple-plus</v-icon>Login</v-btn
         >
       </div>
