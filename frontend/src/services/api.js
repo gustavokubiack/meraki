@@ -5,7 +5,7 @@ const urlPost = "/api/post";
 export default class API {
   // pega todos os posts da base de dados
   static async getAllPost() {
-    const res = await axios.get(urlPost);
+    const res = await axios.get(urlPost + "/all");
     return res.data;
   }
 

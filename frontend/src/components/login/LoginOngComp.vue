@@ -19,24 +19,27 @@
               <v-row class="pt-12">
                 <h3 class="default">Email</h3>
               </v-row>
+
               <v-row>
                 <v-text-field
+                  :rules="rules"
                   v-model="loginForm.email"
-                  class="mt-3"
                   placeholder="Digite seu email"
                   outlined
                   rounded
                   color="#050a30"
-                ></v-text-field>
+                >
+                </v-text-field>
               </v-row>
+
               <v-row>
                 <h3 class="default">Senha</h3>
               </v-row>
               <v-row>
                 <v-text-field
+                  :rules="rules"
                   type="password"
                   v-model="loginForm.password"
-                  class="mt-3"
                   placeholder="Digite sua senha"
                   outlined
                   rounded
@@ -45,10 +48,15 @@
               </v-row>
 
               <v-row>
-                <v-btn dark color="#050a30">Entrar</v-btn>
+                <v-card-actions>
+                  <v-btn dark color="#050a30" @click="submitLoginOng"
+                    >Entrar</v-btn
+                  >
+                </v-card-actions>
               </v-row>
+
               <v-row>
-                <p class="mt-3">
+                <p>
                   Não possui uma conta?
                   <a href="/cadastro-ong" class="ml-1 default">Cadastrar-se</a>
                 </p>
@@ -65,11 +73,17 @@
 export default {
   data() {
     return {
+      rules: [(v) => !!v || "Campo Obrigatório"],
+
       loginForm: {
         email: "",
         password: "",
       },
     };
+  },
+  methods: {
+    loginSubmitOngForm() {},
+    async submitLoginOng() {},
   },
 };
 </script>

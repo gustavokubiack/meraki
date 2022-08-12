@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/default/Home.vue";
+import NProgress from "nprogress";
 
 Vue.use(VueRouter);
 
@@ -112,4 +113,15 @@ const router = new VueRouter({
   routes,
 });
 
+// ==> NProgress
+router.beforeResolve((to, from, next) => {
+  if (to.name) {
+    NProgress.start();
+  }
+  next();
+});
+
+router.afterEach(() => {
+  NProgress.done();
+});
 export default router;
