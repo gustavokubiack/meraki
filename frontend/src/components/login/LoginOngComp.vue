@@ -5,6 +5,7 @@
         <v-row>
           <v-col>
             <v-img
+              class="d-flex justify-center"
               src="@/assets/images/imagemLogin.png"
               max-width="400px"
               max-height="400px"
