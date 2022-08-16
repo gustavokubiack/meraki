@@ -3,9 +3,8 @@
     <v-container class="pa-8">
       <v-card shaped class="pa-8">
         <v-row>
-          <v-col>
+          <v-col class="d-flex justify-center">
             <v-img
-              class="d-flex justify-center"
               src="@/assets/images/imagemLogin.png"
               max-width="400px"
               max-height="400px"
@@ -22,13 +21,15 @@
 
               <v-row>
                 <v-text-field
-                  :rules="rules"
                   v-model="loginForm.email"
                   placeholder="Digite seu email"
                   outlined
                   rounded
                   color="#050a30"
+                  :error-messages="getErrors('email', $v.loginForm.email)"
+                  @blur="$v.firstName.$touch()"
                 >
+                  >
                 </v-text-field>
               </v-row>
 
@@ -37,13 +38,14 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  :rules="rules"
                   type="password"
                   v-model="loginForm.password"
                   placeholder="Digite sua senha"
                   outlined
                   rounded
                   color="#050a30"
+                  :error-messages="getErrors('password', $v.loginForm.password)"
+                  @blur="$v.loginForm.password.$touch()"
                 ></v-text-field>
               </v-row>
 
@@ -70,20 +72,47 @@
 </template>
 
 <script>
+import { required, email } from "vuelidate/lib/validators";
 export default {
   data() {
     return {
-      rules: [(v) => !!v || "Campo Obrigatório"],
-
       loginForm: {
         email: "",
         password: "",
       },
     };
   },
+  validations: {
+    loginForm: {
+      email: { required, email },
+      password: { required },
+    },
+  },
   methods: {
-    loginSubmitOngForm() {},
-    async submitLoginOng() {},
+    submitLoginOng() {
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return;
+      }
+    },
+
+    getErrors(name, model) {
+      const errors = [];
+      if (!model.$dirty) return errors;
+      switch (name) {
+        case "email":
+          !model.email && errors.push("Email inválido.");
+          !model.required && errors.push("E-mail é obrigatório.");
+          break;
+        case "password":
+          !model.required && errors.push("Senha é obrigatória");
+          break;
+
+        default:
+          break;
+      }
+      return errors;
+    },
   },
 };
 </script>

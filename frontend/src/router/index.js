@@ -103,7 +103,7 @@ const routes = [
   },
   {
     path: "/cadastro-ong",
-    name: "LoginOng",
+    name: "CadastroOng",
     component: () => import("@/components/cadastro/CadastroOngComp.vue"),
   },
 ];

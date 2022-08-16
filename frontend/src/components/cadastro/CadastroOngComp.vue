@@ -29,13 +29,14 @@
               <v-row>
                 <v-text-field
                   v-model="registerForm.emailOng"
-                  :rules="rules"
                   class="mt-3"
                   placeholder="Digite seu email"
                   outlined
                   dense
                   rounded
                   color="#050a30"
+                  :error-messages="getErrors('email', $v.registerForm.emailOng)"
+                  @blur="$v.registerForm.emailOng.$touch()"
                 >
                 </v-text-field>
               </v-row>
@@ -46,7 +47,6 @@
               <v-row>
                 <v-text-field
                   v-model="registerForm.passwordOng"
-                  :rules="rules"
                   type="password"
                   class="mt-3"
                   placeholder="Digite sua senha"
@@ -54,6 +54,10 @@
                   dense
                   rounded
                   color="#050a30"
+                  :error-messages="
+                    getErrors('password', $v.registerForm.passwordOng)
+                  "
+                  @blur="$v.registerForm.passwordOng.$touch()"
                 >
                 </v-text-field>
               </v-row>
@@ -157,7 +161,9 @@
                 </v-col>
               </v-row>
               <v-row class="d-flex justify-end mr-5">
-                <v-btn dense dark color="#050a30">Criar conta</v-btn>
+                <v-btn dense dark color="#050a30" @click="submitRegisterUser"
+                  >Criar conta</v-btn
+                >
               </v-row>
 
               <v-row class="d-flex justify-end mt-5 mr-5">
@@ -175,6 +181,7 @@
 </template>
 
 <script>
+import { required, email } from "vuelidate/lib/validators";
 export default {
   data() {
     return {
@@ -193,9 +200,45 @@ export default {
       },
     };
   },
+  validations: {
+    registerForm: {
+      nameOng: { required },
+      emailOng: { required, email },
+      passwordOng: { required },
+      telephoneOng: { required },
+      stateOng: { required },
+      cityOng: { required },
+      neighborhoodOng: { required },
+      streetOng: { required },
+      numberHouseOng: { required },
+    },
+  },
   methods: {
     registerSubmitOngForm() {},
-    async submitRegisterUser() {},
+    submitRegisterUser() {
+      this.$v.$touch();
+      if (this.$v.$invalid) {
+        return;
+      }
+    },
+
+    getErrors(name, model) {
+      const errors = [];
+      if (!model.$dirty) return errors;
+      switch (name) {
+        case "email":
+          !model.email && errors.push("Email inválido.");
+          !model.required && errors.push("E-mail é obrigatório.");
+          break;
+        case "password":
+          !model.required && errors.push("Senha é obrigatória");
+          break;
+
+        default:
+          break;
+      }
+      return errors;
+    },
   },
 };
 </script>
