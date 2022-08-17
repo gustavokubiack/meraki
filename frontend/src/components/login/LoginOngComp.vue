@@ -26,7 +26,6 @@
                   outlined
                   rounded
                   color="#050a30"
-                  :error-messages="getErrors('email', $v.loginForm.email)"
                   @blur="$v.firstName.$touch()"
                 >
                   >
@@ -44,7 +43,6 @@
                   outlined
                   rounded
                   color="#050a30"
-                  :error-messages="getErrors('password', $v.loginForm.password)"
                   @blur="$v.loginForm.password.$touch()"
                 ></v-text-field>
               </v-row>
@@ -72,7 +70,9 @@
 </template>
 
 <script>
+import swal from "sweetalert";
 import { required, email } from "vuelidate/lib/validators";
+
 export default {
   data() {
     return {
@@ -92,27 +92,34 @@ export default {
     submitLoginOng() {
       this.$v.$touch();
       if (this.$v.$invalid) {
+        swal({
+          title: "Ops!",
+          text: "Preencha os campos corretamente!",
+          icon: "error",
+          button: "Ok",
+        });
+
         return;
       }
     },
 
-    getErrors(name, model) {
-      const errors = [];
-      if (!model.$dirty) return errors;
-      switch (name) {
-        case "email":
-          !model.email && errors.push("Email inválido.");
-          !model.required && errors.push("E-mail é obrigatório.");
-          break;
-        case "password":
-          !model.required && errors.push("Senha é obrigatória");
-          break;
-
-        default:
-          break;
-      }
-      return errors;
-    },
+    //    getErrors(name, model) {
+    //      const errors = [];
+    //      if (!model.$dirty) return errors;
+    //      switch (name) {
+    //        case "email":
+    //          !model.email && errors.push("Email inválido.");
+    //          !model.required && errors.push("E-mail é obrigatório.");
+    //          break;
+    //        case "password":
+    //          !model.required && errors.push("Senha é obrigatória");
+    //          break;
+    //
+    //        default:
+    //          break;
+    //      }
+    //      return errors;
+    //    },
   },
 };
 </script>

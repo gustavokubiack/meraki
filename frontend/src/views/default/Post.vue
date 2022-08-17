@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import API from "@/services/api.js";
+import API from "@/services/postsOng.js";
 export default {
   data() {
     return {

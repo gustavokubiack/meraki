@@ -1,5 +1,5 @@
 <template>
-  <v-app v-app style="background: #050a30">
+  <v-app style="background: #050a30">
     <v-container class="pa-12">
       <v-card shaped class="pa-8">
         <v-form v-on:submit.prevent="registerSubmitOngForm()">
@@ -12,7 +12,7 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.nameOng"
+                  v-model="registerForm.name"
                   :rules="rules"
                   class="mt-3"
                   placeholder="Digite o nome da instituição"
@@ -28,15 +28,14 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.emailOng"
+                  v-model="registerForm.email"
                   class="mt-3"
                   placeholder="Digite seu email"
                   outlined
                   dense
                   rounded
                   color="#050a30"
-                  :error-messages="getErrors('email', $v.registerForm.emailOng)"
-                  @blur="$v.registerForm.emailOng.$touch()"
+                  @blur="$v.registerForm.email.$touch()"
                 >
                 </v-text-field>
               </v-row>
@@ -46,7 +45,7 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.passwordOng"
+                  v-model="registerForm.password"
                   type="password"
                   class="mt-3"
                   placeholder="Digite sua senha"
@@ -54,10 +53,7 @@
                   dense
                   rounded
                   color="#050a30"
-                  :error-messages="
-                    getErrors('password', $v.registerForm.passwordOng)
-                  "
-                  @blur="$v.registerForm.passwordOng.$touch()"
+                  @blur="$v.registerForm.password.$touch()"
                 >
                 </v-text-field>
               </v-row>
@@ -66,7 +62,7 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.telephoneOng"
+                  v-model="registerForm.telephone"
                   :rules="rules"
                   class="mt-3"
                   placeholder="Digite seu telefone"
@@ -86,7 +82,7 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.stateOng"
+                  v-model="registerForm.state"
                   :rules="rules"
                   class="mt-3"
                   placeholder="Estado da instituição"
@@ -102,7 +98,7 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.cityOng"
+                  v-model="registerForm.city"
                   :rules="rules"
                   class="mt-3"
                   placeholder="Cidade da instituição"
@@ -119,7 +115,7 @@
               </v-row>
               <v-row>
                 <v-text-field
-                  v-model="registerForm.neighborhoodOng"
+                  v-model="registerForm.neighborhood"
                   :rules="rules"
                   class="mt-3"
                   placeholder="Bairro da instituição"
@@ -136,7 +132,7 @@
               <v-row>
                 <v-col>
                   <v-text-field
-                    v-model="registerForm.streetOng"
+                    v-model="registerForm.street"
                     :rules="rules"
                     placeholder="Rua "
                     outlined
@@ -149,7 +145,7 @@
 
                 <v-col>
                   <v-text-field
-                    v-model="registerForm.numberHouseOng"
+                    v-model="registerForm.numberHouse"
                     :rules="rules"
                     placeholder="***"
                     outlined
@@ -161,7 +157,7 @@
                 </v-col>
               </v-row>
               <v-row class="d-flex justify-end mr-5">
-                <v-btn dense dark color="#050a30" @click="submitRegisterUser"
+                <v-btn dense dark color="#050a30" @click="submitRegisterOng"
                   >Criar conta</v-btn
                 >
               </v-row>
@@ -181,63 +177,67 @@
 </template>
 
 <script>
+import swal from "sweetalert";
+import registerOng from "@/services/registerOng";
 import { required, email } from "vuelidate/lib/validators";
+
 export default {
   data() {
     return {
       rules: [(v) => !!v || "Campo obrigatório"],
 
       registerForm: {
-        nameOng: "",
-        emailOng: "",
-        passwordOng: "",
-        telephoneOng: "",
-        stateOng: "",
-        cityOng: "",
-        neighborhoodOng: "",
-        streetOng: "",
-        numberHouseOng: "",
+        name: "",
+        email: "",
+        password: "",
+        telephone: "",
+        state: "",
+        city: "",
+        neighborhood: "",
+        street: "",
+        numberHouse: "",
       },
     };
   },
   validations: {
     registerForm: {
-      nameOng: { required },
-      emailOng: { required, email },
-      passwordOng: { required },
-      telephoneOng: { required },
-      stateOng: { required },
-      cityOng: { required },
-      neighborhoodOng: { required },
-      streetOng: { required },
-      numberHouseOng: { required },
+      name: { required },
+      email: { required, email },
+      password: { required },
+      telephone: { required },
+      state: { required },
+      city: { required },
+      neighborhood: { required },
+      street: { required },
+      numberHouse: { required },
     },
   },
   methods: {
     registerSubmitOngForm() {},
-    submitRegisterUser() {
-      this.$v.$touch();
-      if (this.$v.$invalid) {
-        return;
-      }
-    },
 
-    getErrors(name, model) {
-      const errors = [];
-      if (!model.$dirty) return errors;
-      switch (name) {
-        case "email":
-          !model.email && errors.push("Email inválido.");
-          !model.required && errors.push("E-mail é obrigatório.");
-          break;
-        case "password":
-          !model.required && errors.push("Senha é obrigatória");
-          break;
-
-        default:
-          break;
+    async submitRegisterOng() {
+      try {
+        this.$v.$touch();
+        if (this.$v.$invalid) {
+          swal({
+            title: "Ops!",
+            text: "Preencha todos os campos.",
+            icon: "error",
+            button: "Ok",
+          });
+          return;
+        }
+        await registerOng.registerNewOng(this.registerForm);
+        this.$router.push("/login-ong");
+      } catch (error) {
+        console.log(error);
+        swal({
+          title: "Ops!",
+          text: "Algo deu errado.",
+          icon: "error",
+          button: "Ok",
+        });
       }
-      return errors;
     },
   },
 };
