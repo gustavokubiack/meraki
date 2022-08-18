@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import API from "@/services/postsOng.js";
+import Posts from "@/services/postsOng.js";
 export default {
   data() {
     return {
@@ -59,7 +59,7 @@ export default {
     };
   },
   async created() {
-    const response = await API.getPostByID(this.$route.params.id);
+    const response = await Posts.getPostByID(this.$route.params.id);
     this.post = response;
   },
 };

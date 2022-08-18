@@ -37,7 +37,7 @@
   </v-container>
 </template>
 <script>
-import API from "@/services/postsOng.js";
+import Posts from "@/services/postsOng.js";
 
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
     };
   },
   async created() {
-    this.posts = await API.getAllDiversityPosts();
+    this.posts = await Posts.getAllDiversityPosts();
   },
 };
 </script>

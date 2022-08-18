@@ -141,7 +141,7 @@
 </template>
 
 <script>
-import API from "@/services/postsOng.js";
+import Posts from "@/services/postsOng.js";
 export default {
   data: () => ({
     rules: [(value) => !!value || "Campo obrigatório"],
@@ -198,7 +198,7 @@ export default {
       formData.append("chosenCause", this.post.chosenCause);
       formData.append("ong", this.post.ong);
       if (this.$refs.form.validate()) {
-        const response = await API.addPost(formData);
+        const response = await Posts.addPost(formData);
         this.$router.push({
           name: "PainelDeControle",
           params: { message: response.message },

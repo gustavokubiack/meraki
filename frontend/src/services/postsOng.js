@@ -2,7 +2,7 @@ import axios from "axios";
 
 const urlPost = "/api/post";
 
-export default class API {
+export default class Posts {
   // pega todos os posts da base de dados
   static async getAllPost() {
     const res = await axios.get(urlPost + "/all");

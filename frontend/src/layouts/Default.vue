@@ -11,16 +11,20 @@
       </v-btn>
 
       <v-spacer></v-spacer>
+
+      <!-- botão área restrita -->
+
       <v-btn
-        depressed
+        icon
+        @click.stop="$router.push('/adicionar-causa')"
+        v-if="!OngAuthenticated"
         color="#050a30"
-        fab
-        small
-        link
-        to="/adicionar-causa"
-        v-if="$auth.isAuthenticated"
-        ><v-icon>mdi-plus</v-icon>
+        dark
+        dense
+      >
+        <v-icon>mdi-plus</v-icon>
       </v-btn>
+
       <v-app-bar-nav-icon
         color="#050a30"
         large
@@ -53,25 +57,12 @@
             <v-list-item-content>Login</v-list-item-content>
           </v-list-item>
         </div>
-        <v-list-item v-if="$auth.isAuthenticated" to="/painel-de-controle">
-          <v-list-item-icon>
-            <v-icon>mdi-hammer-wrench</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>Painel de Controle</v-list-item-content>
-        </v-list-item>
 
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>{{ item.title }}</v-list-item-content>
-        </v-list-item>
-
-        <v-list-item v-if="$auth.isAuthenticated" @click="logout">
-          <v-list-item-icon>
-            <v-icon>mdi-logout</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>Sair</v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>

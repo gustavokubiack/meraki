@@ -1,5 +1,5 @@
 <template>
-  <v-container class="pa-8" fluid>
+  <v-container fluid>
     <v-card shaped>
       <v-list color="#f8f7f2" class="teste">
         <v-list-item v-for="icon of icons" :key="icon.title" link :to="icon.to">
@@ -39,5 +39,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

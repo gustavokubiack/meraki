@@ -26,7 +26,7 @@
                   outlined
                   rounded
                   color="#050a30"
-                  @blur="$v.firstName.$touch()"
+                  @blur="$v.loginForm.email.$touch()"
                 >
                   >
                 </v-text-field>
@@ -72,6 +72,7 @@
 <script>
 import swal from "sweetalert";
 import { required, email } from "vuelidate/lib/validators";
+import loginOng from "@/services/loginOng.js";
 
 export default {
   data() {
@@ -89,37 +90,30 @@ export default {
     },
   },
   methods: {
-    submitLoginOng() {
-      this.$v.$touch();
-      if (this.$v.$invalid) {
+    async submitLoginOng() {
+      try {
+        this.$v.$touch();
+        if (this.$v.$invalid) {
+          swal({
+            title: "Ops!",
+            text: "Preencha os campos corretamente!",
+            icon: "error",
+            button: "Ok",
+          });
+          return;
+        }
+        await loginOng.loginOng(this.loginForm);
+        this.$router.push("/");
+      } catch (err) {
         swal({
           title: "Ops!",
-          text: "Preencha os campos corretamente!",
+          text: "Email ou senha incorretos!",
           icon: "error",
           button: "Ok",
         });
-
-        return;
+        throw err;
       }
     },
-
-    //    getErrors(name, model) {
-    //      const errors = [];
-    //      if (!model.$dirty) return errors;
-    //      switch (name) {
-    //        case "email":
-    //          !model.email && errors.push("Email inválido.");
-    //          !model.required && errors.push("E-mail é obrigatório.");
-    //          break;
-    //        case "password":
-    //          !model.required && errors.push("Senha é obrigatória");
-    //          break;
-    //
-    //        default:
-    //          break;
-    //      }
-    //      return errors;
-    //    },
   },
 };
 </script>
