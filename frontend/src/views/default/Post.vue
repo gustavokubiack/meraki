@@ -5,8 +5,10 @@
         <v-col>
           <v-img
             :src="`/${post.image}`"
-            max-width="426"
+            max-width="600"
             max-height="384"
+            min-heitgh="384"
+            min-width="600"
             class="mt-2"
           ></v-img>
 

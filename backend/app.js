@@ -13,6 +13,7 @@ const port = process.env.PORT || 3339;
 const index = require("./routes/index.routes");
 const postRouter = require("./routes/posts.routes");
 const ongRouter = require("./routes/ong.routes");
+const userRouter = require('./routes/user.routes')
 
 app.use(cors());
 app.use(express.json());
@@ -21,13 +22,14 @@ app.use(express.static("uploads"));
 app.use(express.json({ type: "application/vnd.api+json" }));
 app.use(morgan("dev"));
 
-// conecção com o mongoDB
+// conexão com o mongoDB
 app.set("connection", dbConfig);
 
 // rotas da aplicação
 app.use(index);
 app.use("/api/post/", postRouter);
 app.use("/api/ong/", ongRouter);
+app.use("/api/user", userRouter)
 
 // iniciando o servidor
 app.listen(port, () => {
