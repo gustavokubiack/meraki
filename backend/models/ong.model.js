@@ -15,6 +15,7 @@ const ongSchema = new mongoose.Schema({
   street: String,
   numberHouse: String,
   telephone: String,
+  cnpj: String,
   tokens: [
     {
       token: { type: String, required: true },
