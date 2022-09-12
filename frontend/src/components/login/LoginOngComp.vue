@@ -12,7 +12,7 @@
             </v-img>
           </v-col>
           <v-col>
-            <h1 class="titulo d-flex justify-center">Bem-vindo ao Meraki!</h1>
+            <h1 class="titulo-login d-flex justify-center">Bem-vindo ao Meraki!</h1>
 
             <v-form v-on:sumbmit.prevent="loginSubmitUserForm()">
               <v-row class="pt-12">
@@ -58,7 +58,7 @@
               <v-row>
                 <p>
                   Não possui uma conta?
-                  <a href="/cadastro-ong" class="ml-1 default">Cadastrar-se</a>
+                  <a href="/cadastro/ong" class="ml-1 default">Cadastrar-se</a>
                 </p>
               </v-row>
             </v-form>
@@ -119,7 +119,7 @@ export default {
 </script>
 
 <style>
-.titulo {
+.titulo-login {
   color: #050a30;
   font-family: "Lato";
 }

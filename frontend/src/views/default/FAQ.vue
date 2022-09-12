@@ -4,7 +4,7 @@
 
   <p class="texto-faq mt-4">Ficou um alguma dúvida relacionada ao Meraki? Essa página contém as perguntas mais recorrentes que recebemos sobre a plataforma. Caso sua dúvida não esteja repondida aqui, sinta-se a vontade para nos contactar via e-mail ou redes sociais.</p>
 
-  <v-card class="flex-column mt-8"  v-for="(question, i) in questions" :key="i" >
+  <v-card class="flex-column mt-8" outlined v-for="(question, i) in questions" :key="i" >
     <v-card-actions >
       <v-btn icon @click="question.show = ! question.show">
         <v-icon>{{question.show  ? "mdi-chevron-up" : "mdi-magnify"  }}</v-icon>

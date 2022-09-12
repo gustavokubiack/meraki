@@ -228,7 +228,7 @@ export default {
           return;
         }
         await registerOng.registerNewOng(this.registerForm);
-        this.$router.push("/login-ong");
+        this.$router.push("/login/ong");
       } catch (error) {
         console.log(error);
         swal({

@@ -97,12 +97,23 @@ const routes = [
   },
 
   {
-    path: "/login-ong",
+    path: "/login/ong",
     name: "LoginOng",
     component: () => import("@/components/login/LoginOngComp.vue"),
   },
   {
-    path: "/cadastro-ong",
+    path: "/cadastro/ong",
+    name: "CadastroOng",
+    component: () => import("@/components/cadastro/CadastroOngComp.vue"),
+  },
+
+  {
+    path: "/login/user",
+    name: "LoginOng",
+    component: () => import("@/components/login/LoginOngComp.vue"),
+  },
+  {
+    path: "/cadastro/user",
     name: "CadastroOng",
     component: () => import("@/components/cadastro/CadastroOngComp.vue"),
   },

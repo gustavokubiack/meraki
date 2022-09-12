@@ -11,7 +11,7 @@
           <v-icon left dark>mdi-account-multiple-plus</v-icon>usuário</v-btn
         >
 
-       <v-btn class="mx-2" large link to="login-ong">
+       <v-btn class="mx-2" large link to="login/ong">
           <v-icon left dark>mdi-account-multiple-plus</v-icon>Ongs</v-btn
         >
       </div>
