@@ -12,8 +12,7 @@
 
       <v-spacer></v-spacer>
 
-      <!-- botão área restrita -->
-
+      <!-- botão área restrita 
       <v-btn
         icon
         @click.stop="$router.push('/adicionar-causa')"
@@ -24,6 +23,8 @@
       >
         <v-icon>mdi-plus</v-icon>
       </v-btn>
+      -->
+
 
       <v-app-bar-nav-icon
         color="#050a30"
@@ -49,15 +50,6 @@
       </v-list>
 
       <v-list color="#f8f7f2">
-        <div v-if="!$auth.loading">
-          <v-list-item v-if="!$auth.isAuthenticated" @click="login">
-            <v-list-item-icon>
-              <v-icon>mdi-account-plus</v-icon>
-            </v-list-item-icon>
-            <v-list-item-content>Login</v-list-item-content>
-          </v-list-item>
-        </div>
-
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -80,23 +72,13 @@ export default {
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        { title: "Instituições", icon: "mdi-home-plus", to: "/tela-cadastro" },
+        { title: "Login", icon: "mdi-home-plus", to: "/tela-cadastro" },
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-at", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },
       ],
     };
-  },
-  methods: {
-    logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin,
-      });
-    },
-    login() {
-      this.$auth.loginWithRedirect();
-    },
   },
 };
 </script>

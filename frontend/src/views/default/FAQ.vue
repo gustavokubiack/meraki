@@ -68,7 +68,7 @@ export default {
 }
 .texto-faq {
   font-family: "Lato", sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   color: #f8f7f2;
   text-align: justify;
 }
