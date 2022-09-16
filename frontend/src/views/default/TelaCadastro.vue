@@ -1,7 +1,7 @@
 <template>
   <!-- nessa tela vai ter as duas opções de login no sistema, usuário comum e as ONGs !-->
   <v-container class="pa-8">
-    <p class="titulo-perfil">Faça o seu login no Meraki</p>
+    <p class="titulo-perfil">Deseja entrar no Meraki como:</p>
 
     <!--    <div class="d-flex justify-center pa-8">
 
@@ -28,7 +28,7 @@
           </div>
 
           <div class="d-flex justify-center">
-            <v-btn dark color="#050a30" link>ONGs</v-btn>
+            <v-btn dark color="#050a30" link to="/login/ong">ONGs</v-btn>
           </div>
         </v-col>
 
@@ -41,7 +41,7 @@
             ></v-img>
           </div>
           <div class="d-flex justify-center">
-            <v-btn dark color="#050a30">VOLUNTÁRIO</v-btn>
+            <v-btn dark color="#050a30" link to="/login/user">VOLUNTÁRIO</v-btn>
           </div>
         </v-col>
       </v-row>

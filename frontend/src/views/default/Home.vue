@@ -2,7 +2,8 @@
   <v-container class="pa-8" fluid>
     <v-item-group mandatory class="mt-n1">
       <v-container>
-        <h1 class="titulo-home">Ajude uma causa, voluntarie-se!</h1>
+        <h1 class="titulo-home"> <i>"Seja a mudança que você quer ver no mundo"</i></h1>
+        <p class="subtitulo-home d-flex justify-center ml-16px">Mahatma Gandhi</p>
 
         <v-row justify="center" class="space mt-6">
           <v-col
@@ -16,7 +17,6 @@
             <v-item v-slot="{ active }">
               <v-card
                 color="#f8f7f2"
-                :class="active ? 'borderme' : 'borderout'"
                 class="d-flex align-center rounded-lg mx-2"
                 dark
                 height="180"
@@ -98,18 +98,6 @@ export default {
       categories: [{ img: "causaHome.png", title: "Causas", to: "/causas" }],
     };
   },
-  methods: {
-    // Log the user in
-    login() {
-      this.$auth.loginWithRedirect();
-    },
-    // Log the user out
-    logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin,
-      });
-    },
-  },
 };
 </script>
 
@@ -134,7 +122,7 @@ export default {
 }
 .titulo-home {
   color: #f8f8f2;
-  font-family: "Prata", serif;
+  font-family:"Cardo", serif;
   font-size: 40px;
   margin-top: 40px;
   text-align: center;
@@ -153,5 +141,11 @@ export default {
   font-size: 30px;
   margin-top: 40px;
   margin-left: 15px;
+}
+
+.subtitulo-home {
+  color: #f8f8f2;
+  font-family: "Cardo", serif;
+  font-size: 20px;
 }
 </style>

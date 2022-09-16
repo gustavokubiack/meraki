@@ -93,30 +93,34 @@ const routes = [
   {
     path: "/",
     component: () => import("@/layouts/Blank"),
-    children: [],
+    children: [
+      {
+        path: "/login/ong",
+        name: "LoginOng",
+        component: () => import("@/components/login/LoginOngComp.vue"),
+      },
+
+      {
+        path: "/cadastro/ong",
+        name: "CadastroOng",
+        component: () => import("@/components/cadastro/CadastroOngComp.vue"),
+      },
+
+      {
+        path: "/login/user",
+        name: "LoginOng",
+        component: () => import("@/components/login/LoginOngComp.vue"),
+      },
+
+      {
+        path: "/cadastro/user",
+        name: "CadastroOng",
+        component: () => import("@/components/cadastro/CadastroOngComp.vue"),
+      },
+    ],
   },
 
-  {
-    path: "/login/ong",
-    name: "LoginOng",
-    component: () => import("@/components/login/LoginOngComp.vue"),
-  },
-  {
-    path: "/cadastro/ong",
-    name: "CadastroOng",
-    component: () => import("@/components/cadastro/CadastroOngComp.vue"),
-  },
 
-  {
-    path: "/login/user",
-    name: "LoginOng",
-    component: () => import("@/components/login/LoginOngComp.vue"),
-  },
-  {
-    path: "/cadastro/user",
-    name: "CadastroOng",
-    component: () => import("@/components/cadastro/CadastroOngComp.vue"),
-  },
 ];
 const router = new VueRouter({
   mode: "history",
