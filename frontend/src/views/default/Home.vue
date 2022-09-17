@@ -2,8 +2,17 @@
   <v-container class="pa-8" fluid>
     <v-item-group mandatory class="mt-n1">
       <v-container>
-        <h1 class="titulo-home"> <i>"Seja a mudança que você quer ver no mundo."</i></h1>
-        <p class="subtitulo-home d-flex justify-center ml-16px">Mahatma Gandhi</p>
+        <div>
+          <h1 class="titulo-home">
+            <i>"Seja a mudança que você quer ver no mundo."</i>
+          </h1>
+          <p class="subtitulo-home d-flex justify-center ml-16px">
+            Mahatma Gandhi
+          </p>
+        </div>
+
+        <v-btn @click="logoutOng()" v-show="authOng()">Sair</v-btn>
+        <v-btn class="ml-2" v-show="authOng()">Autenticado</v-btn>
 
         <v-row justify="center" class="space mt-6">
           <v-col
@@ -75,6 +84,7 @@ export default {
   },
   data() {
     return {
+      isAuthenticated: false,
       items: [
         {
           src: "https://images.unsplash.com/photo-1494005612480-90f50fd9376f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1473&q=8",
@@ -97,6 +107,20 @@ export default {
       ],
       categories: [{ img: "causaHome.png", title: "Causas", to: "/causas" }],
     };
+  },
+  methods: {
+    logoutOng() {
+      localStorage.removeItem("jwt");
+      this.$router.push("/login/ong");
+    },
+    authOng() {
+      if (localStorage.getItem("jwt")) {
+        this.isAuthenticated = true;
+      } else {
+        this.isAuthenticated = false;
+      }
+      return this.isAuthenticated;
+    },
   },
 };
 </script>
@@ -122,7 +146,7 @@ export default {
 }
 .titulo-home {
   color: #f8f8f2;
-  font-family:"Cardo", serif;
+  font-family: "Cardo", serif;
   font-size: 40px;
   margin-top: 40px;
   text-align: center;

@@ -12,7 +12,9 @@
             </v-img>
           </v-col>
           <v-col>
-            <h1 class="titulo-login d-flex justify-center">Bem-vindo ao Meraki!</h1>
+            <h1 class="titulo-login d-flex justify-center">
+              Bem-vindo ao Meraki!
+            </h1>
 
             <v-form v-on:sumbmit.prevent="loginSubmitUserForm()">
               <v-row class="pt-12">

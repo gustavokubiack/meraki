@@ -1,6 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import loginOng from "../services/loginOng";
 import Home from "../views/default/Home.vue";
 import NProgress from "nprogress";
 
@@ -150,7 +149,7 @@ const router = new VueRouter({
 // Função que bloqueia o acesso a rotas que precisam de autenticação - ONG
 router.beforeEach((to, from, next) => {
   if (to.matched.some((record) => record.meta.requiresAuthOng)) {
-    if (loginOng.token == null) {
+    if (localStorage.getItem("jwt") == null) {
       next({
         path: "/login/ong",
       });
