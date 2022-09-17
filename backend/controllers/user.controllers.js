@@ -35,11 +35,14 @@ exports.loginUser = async (req, res) => {
         error: "Erro ao Logar! Verifique as suas credenciais de autenticação!",
       });
     }
+    const token = await user.generateAuthToken();
+    return res
+      .status(201)
+      .json({ message: "Usuário(a) logado com sucesso!", user, token });
   } catch (err) {
-    return res.status(400).json({ message: err.message });
+    console.log(err);
   }
 };
-
 // Retornar informações do usuário
 
 exports.returnUserProfile = async (req, res) => {
