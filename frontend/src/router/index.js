@@ -1,5 +1,6 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import loginOng from "../services/loginOng";
 import Home from "../views/default/Home.vue";
 import NProgress from "nprogress";
 
@@ -72,24 +73,43 @@ const routes = [
         name: "CausaMeioAmbiente",
         component: () => import("../views/default/CausaMeioAmbiente.vue"),
       },
-
-      {
-        path: "/adicionar-causa",
-        name: "adicionarcausa",
-        component: () => import("../views/admin/AdicionarCausa.vue"),
-      },
       {
         path: "/post/:id",
         name: "post",
         component: () => import("../views/default/Post.vue"),
       },
+
+      // Rotas que precisam de autenticação - ONG
       {
-        path: "/painel-de-controle",
+        path: "/adicionar-causa",
+        name: "adicionarcausa",
+        component: () => import("../views/admin/AdicionarCausa.vue"),
+        meta: {
+          requiresAuthOng: true,
+        },
+      },
+      {
+        path: "/admin",
         name: "PainelDeControle",
         component: () => import("../views/admin/PainelDeControle.vue"),
+        meta: {
+          requiresAuthOng: true,
+        },
+      },
+
+      // Rotas que precisam de autenticação - Usuário
+
+      {
+        path: "/perfil/user",
+        name: "PerfilUser",
+        component: () => import("../views/default/PerfilUsuario.vue"),
+        meta: {
+          requiresAuthUser: true,
+        },
       },
     ],
   },
+
   {
     path: "/",
     component: () => import("@/layouts/Blank"),
@@ -119,8 +139,6 @@ const routes = [
       },
     ],
   },
-
-
 ];
 const router = new VueRouter({
   mode: "history",
@@ -128,7 +146,23 @@ const router = new VueRouter({
   routes,
 });
 
-// ==> NProgress
+// Função que bloqueia o acesso a rotas que precisam de autenticação - ONG
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuthOng)) {
+    if (loginOng.token == null) {
+      next({
+        path: "/login/ong",
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+// Função que bloqueia o acesso a rotas que precisam de autenticação - Usuário
+
+// ==> Animação - Barra de progresso
 router.beforeResolve((to, from, next) => {
   if (to.name) {
     NProgress.start();
@@ -139,4 +173,5 @@ router.beforeResolve((to, from, next) => {
 router.afterEach(() => {
   NProgress.done();
 });
+
 export default router;

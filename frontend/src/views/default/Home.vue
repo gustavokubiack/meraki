@@ -2,7 +2,7 @@
   <v-container class="pa-8" fluid>
     <v-item-group mandatory class="mt-n1">
       <v-container>
-        <h1 class="titulo-home"> <i>"Seja a mudança que você quer ver no mundo"</i></h1>
+        <h1 class="titulo-home"> <i>"Seja a mudança que você quer ver no mundo."</i></h1>
         <p class="subtitulo-home d-flex justify-center ml-16px">Mahatma Gandhi</p>
 
         <v-row justify="center" class="space mt-6">
