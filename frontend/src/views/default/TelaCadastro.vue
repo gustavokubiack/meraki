@@ -1,56 +1,66 @@
 <template>
   <!-- nessa tela vai ter as duas opções de login no sistema, usuário comum e as ONGs !-->
   <v-container class="pa-8">
-    <p class="titulo-perfil">Deseja entrar no Meraki como:</p>
-
-    <!--    <div class="d-flex justify-center pa-8">
-
-        <v-btn class="mx-2" large link to="/">
-          <v-icon left dark>mdi-account-multiple-plus</v-icon>usuário</v-btn
-        >
-
-       <v-btn class="mx-2" large link to="login/ong">
-          <v-icon left dark>mdi-account-multiple-plus</v-icon>Ongs</v-btn
-        >
-      </div>
-    </div>
-!-->
-
-    <v-card color="#f8f7f2" class="pa-8">
-      <v-row>
-        <v-col>
-          <div class="d-flex justify-center">
-            <v-img
-              src="@/assets/images/ongImage.png"
-              max-height="200px"
-              max-width="200px"
-            ></v-img>
-          </div>
-
-          <div class="d-flex justify-center">
-            <v-btn dark color="#050a30" link to="/login/ong">ONGs</v-btn>
-          </div>
-        </v-col>
-
-        <v-col>
-          <div class="d-flex justify-center">
-            <v-img
-              src="@/assets/images/userImage.png"
-              max-height="200px"
-              max-width="200px"
-            ></v-img>
-          </div>
-          <div class="d-flex justify-center">
-            <v-btn dark color="#050a30" link to="/login/user">VOLUNTÁRIO</v-btn>
-          </div>
-        </v-col>
-      </v-row>
-    </v-card>
+    <v-row justify="center" class="space mt-6">
+      <v-col v-for="(cetegory, i) in categories" :key="i">
+        <v-item v-slot="{ active }">
+          <v-card
+            color="#f8f7f2"
+            class="d-flex align-center rounded-lg mx-2"
+            dark
+            height="300"
+            flat
+          >
+            <v-row>
+              <v-col cols="12" sm="12">
+                <v-list-item
+                  three-line
+                  class="text-center"
+                  link
+                  :to="cetegory.to"
+                >
+                  <v-list-item-content>
+                    <div align="center" justify="center">
+                      <v-img
+                        :src="cetegory.img"
+                        max-height="300"
+                        max-width="200"
+                        contain
+                      ></v-img>
+                    </div>
+                    <v-list-item-subtitle
+                      id="titulo"
+                      :class="active ? ' black--text' : 'black--text'"
+                      >{{ cetegory.title }}</v-list-item-subtitle
+                    >
+                  </v-list-item-content>
+                </v-list-item>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-item>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    categories: [
+      {
+        title: "ONGs",
+        img: require("@/assets/images/ongImage.png"),
+        to: "/login/ong",
+      },
+      {
+        title: "Usuário",
+        img: require("@/assets/images/userImage.png"),
+        to: "/login/user",
+      },
+    ],
+  }),
+};
 </script>
 
 <style>
@@ -59,5 +69,11 @@ export default {};
   color: #f8f7f2;
   font-family: "Lato", sans-serif;
   font-size: 30px;
+}
+#titulo {
+  text-align: center;
+  color: #f8f7f2;
+  font-family: "Lato", sans-serif;
+  font-size: 25px;
 }
 </style>
