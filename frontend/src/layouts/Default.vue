@@ -12,19 +12,20 @@
 
       <v-spacer></v-spacer>
 
-      <!-- botão área restrita 
-      <v-btn
-        icon
-        @click.stop="$router.push('/adicionar-causa')"
-        v-if="!OngAuthenticated"
-        color="#050a30"
-        dark
-        dense
-      >
-        <v-icon>mdi-plus</v-icon>
-      </v-btn>
-      -->
+      <!-- botão área restrita - adicionar causa -->
 
+      <v-btn
+        to="/adicionar-causa"
+        icon
+        elevation="4"
+        color="#f8f7f2"
+        depressed
+        fab
+        small
+        v-show="authOng()"
+      >
+        <v-icon color="#050a30">mdi-plus</v-icon>
+      </v-btn>
 
       <v-app-bar-nav-icon
         color="#050a30"
@@ -56,6 +57,13 @@
           </v-list-item-icon>
           <v-list-item-content>{{ item.title }}</v-list-item-content>
         </v-list-item>
+
+        <div v-show="authOng()" @click="logoutOng()">
+          <v-list-item link to="/login-ong">
+            <v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
+            <v-list-item-content>Sair</v-list-item-content>
+          </v-list-item>
+        </div>
       </v-list>
     </v-navigation-drawer>
     <v-main class="fundo">
@@ -68,6 +76,7 @@
 export default {
   data() {
     return {
+      isAuthenticated: false,
       sidebar: true,
       mini: false,
       items: [
@@ -79,6 +88,20 @@ export default {
         { title: "FAQ", icon: "mdi-help-circle", to: "/faq" },
       ],
     };
+  },
+  methods: {
+    logoutOng() {
+      localStorage.removeItem("jwt");
+      this.$router.push("/");
+    },
+    authOng() {
+      if (localStorage.getItem("jwt")) {
+        this.isAuthenticated = true;
+      } else {
+        this.isAuthenticated = false;
+      }
+      return this.isAuthenticated;
+    },
   },
 };
 </script>

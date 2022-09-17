@@ -11,9 +11,6 @@
           </p>
         </div>
 
-        <v-btn @click="logoutOng()" v-show="authOng()">Sair</v-btn>
-        <v-btn class="ml-2" v-show="authOng()">Autenticado</v-btn>
-
         <v-row justify="center" class="space mt-6">
           <v-col
             cols="12"
@@ -107,20 +104,6 @@ export default {
       ],
       categories: [{ img: "causaHome.png", title: "Causas", to: "/causas" }],
     };
-  },
-  methods: {
-    logoutOng() {
-      localStorage.removeItem("jwt");
-      this.$router.push("/login/ong");
-    },
-    authOng() {
-      if (localStorage.getItem("jwt")) {
-        this.isAuthenticated = true;
-      } else {
-        this.isAuthenticated = false;
-      }
-      return this.isAuthenticated;
-    },
   },
 };
 </script>
