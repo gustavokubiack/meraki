@@ -1,7 +1,5 @@
 <template>
-  <v-container class="pa-8">
     <CadastroOngComp />
-  </v-container>
 </template>
 
 <script>

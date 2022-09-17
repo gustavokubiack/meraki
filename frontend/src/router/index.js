@@ -110,6 +110,7 @@ const routes = [
     ],
   },
 
+  // Rotas de login e cadastro
   {
     path: "/",
     component: () => import("@/layouts/Blank"),
@@ -117,25 +118,25 @@ const routes = [
       {
         path: "/login/ong",
         name: "LoginOng",
-        component: () => import("@/components/login/LoginOngComp.vue"),
+        component: () => import("@/views/admin/LoginOng.vue"),
       },
 
       {
         path: "/cadastro/ong",
         name: "CadastroOng",
-        component: () => import("@/components/cadastro/CadastroOngComp.vue"),
+        component: () => import("@/views/admin/CadastroOng.vue"),
       },
 
       {
         path: "/login/user",
         name: "LoginOng",
-        component: () => import("@/components/login/LoginOngComp.vue"),
+        component: () => import("@/views/default/LoginUser.vue"),
       },
 
       {
         path: "/cadastro/user",
         name: "CadastroOng",
-        component: () => import("@/components/cadastro/CadastroOngComp.vue"),
+        component: () => import("@/views/default/CadastroUser.vue"),
       },
     ],
   },
