@@ -16,13 +16,12 @@
           v-for="(cetegory, i) in categories"
           :key="i"
         >
-          <v-item v-slot="{ active, toggle }">
+          <v-item>
             <v-card
               color="#f8f7f2"
               class="d-flex align-center rounded-lg mx-2"
               dark
               height="180"
-              @click="toggle"
               flat
             >
               <v-row>
@@ -42,10 +41,9 @@
                           contain
                         ></v-img>
                       </div>
-                      <v-list-item-subtitle
-                        :class="active ? 'black--text' : 'black--text'"
-                        >{{ cetegory.title }}</v-list-item-subtitle
-                      >
+                      <v-list-item-subtitle id="titulo-cards">{{
+                        cetegory.title
+                      }}</v-list-item-subtitle>
                     </v-list-item-content>
                   </v-list-item>
                 </v-col>
@@ -93,5 +91,11 @@ export default {
   font-size: 35px;
   color: #f8f7f2;
   font-family: "Prata", serif;
+}
+
+#titulo-cards {
+  font-size: 20px;
+  color: #050a30;
+  font-family: "Lato", sans-serif;
 }
 </style>

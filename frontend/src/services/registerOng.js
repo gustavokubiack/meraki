@@ -8,7 +8,7 @@ const urlOng = "/api/ong";
 export default {
   async registerNewOng(newOng) {
     try {
-      const res = await axios.post(urlOng + "/register", newOng);
+      const res = await axios.post(urlOng + "/registerUser", newOng);
       const token = res.data;
 
       if (token) {
