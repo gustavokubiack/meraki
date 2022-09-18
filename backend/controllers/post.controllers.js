@@ -13,9 +13,8 @@ module.exports = class API {
   }
 
   // busca todos os posts de uma ong
-  static async fetchAllPostsByOng(req, res) {
-    // fazer a busca pelo id da ong
-  }
+  static async fetchAllPostsByOng(req, res) {}
+
   // buscando todos os posts de animais
   static async fetchAllAnimalPosts(req, res) {
     try {

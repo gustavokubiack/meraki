@@ -51,6 +51,31 @@
       </v-list>
 
       <v-list color="#f8f7f2">
+        <div v-show="closeItem()">
+          <v-list-item link to="/tela-cadastro">
+            <v-list-item-icon
+              ><v-icon>mdi-account-plus</v-icon></v-list-item-icon
+            >
+            <v-list-item-content>Login</v-list-item-content>
+          </v-list-item>
+        </div>
+
+        <div v-show="authOng()">
+          <v-list-item link to="/admin">
+            <v-list-item-icon
+              ><v-icon>mdi-account-cog</v-icon></v-list-item-icon
+            >
+            <v-list-item-content>Painel de Controle</v-list-item-content>
+          </v-list-item>
+        </div>
+
+        <div v-show="authUser()">
+          <v-list-item link to="/perfil">
+            <v-list-item-icon><v-icon>mdi-account</v-icon></v-list-item-icon>
+            <v-list-item-content>Meu perfil</v-list-item-content>
+          </v-list-item>
+        </div>
+
         <v-list-item v-for="item of items" :key="item.title" link :to="item.to">
           <v-list-item-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -60,6 +85,13 @@
 
         <div v-show="authOng()" @click="logoutOng()">
           <v-list-item link to="/login-ong">
+            <v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
+            <v-list-item-content>Sair</v-list-item-content>
+          </v-list-item>
+        </div>
+
+        <div v-show="authUser()" @click="logoutUser()">
+          <v-list-item link to="/login-user">
             <v-list-item-icon><v-icon>mdi-logout</v-icon></v-list-item-icon>
             <v-list-item-content>Sair</v-list-item-content>
           </v-list-item>
@@ -77,11 +109,11 @@ export default {
   data() {
     return {
       isAuthenticated: false,
+      isAuthenticatedUser: false,
       sidebar: true,
       mini: false,
       items: [
         { title: "Home", icon: "mdi-home", to: "/" },
-        { title: "Login", icon: "mdi-home-plus", to: "/tela-cadastro" },
         { title: "Quem somos", icon: "mdi-account-group", to: "/quemsomos" },
         { title: "Contato", icon: "mdi-at", to: "/contato" },
         { title: "Causas", icon: "mdi-book-open-page-variant", to: "/causas" },
@@ -101,6 +133,26 @@ export default {
         this.isAuthenticated = false;
       }
       return this.isAuthenticated;
+    },
+
+    logoutUser() {
+      localStorage.removeItem("jwtUser");
+      this.$router.push("/");
+    },
+    authUser() {
+      if (localStorage.getItem("jwtUser")) {
+        this.isAuthenticatedUser = true;
+      } else {
+        this.isAuthenticatedUser = false;
+      }
+      return this.isAuthenticatedUser;
+    },
+    closeItem() {
+      if (this.authOng() || this.authUser()) {
+        return false;
+      } else {
+        return true;
+      }
     },
   },
 };

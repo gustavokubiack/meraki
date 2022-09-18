@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-
 // criptografia de dados
 
 const bcrypt = require("bcryptjs");

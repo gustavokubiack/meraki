@@ -44,7 +44,9 @@
             {{ post.description }}
           </div>
           <v-row class="d-flex justify-center mt-14">
-            <v-btn dark color="#050a30">Voluntariar-se</v-btn>
+            <v-btn v-show="authUser()" dark color="#050a30"
+              >Voluntariar-se</v-btn
+            >
           </v-row>
         </v-col>
       </v-row>
@@ -63,6 +65,14 @@ export default {
   async created() {
     const response = await Posts.getPostByID(this.$route.params.id);
     this.post = response;
+  },
+
+  methods: {
+    authUser() {
+      if (localStorage.getItem("jwtUser") != null) {
+        return true;
+      }
+    },
   },
 };
 </script>
