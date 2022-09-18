@@ -70,7 +70,7 @@
         </div>
 
         <div v-show="authUser()">
-          <v-list-item link to="/perfil">
+          <v-list-item link to="/perfil/user">
             <v-list-item-icon><v-icon>mdi-account</v-icon></v-list-item-icon>
             <v-list-item-content>Meu perfil</v-list-item-content>
           </v-list-item>

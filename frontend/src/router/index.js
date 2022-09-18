@@ -128,13 +128,13 @@ const routes = [
 
       {
         path: "/login/user",
-        name: "LoginOng",
+        name: "LoginUser",
         component: () => import("@/views/default/LoginUser.vue"),
       },
 
       {
         path: "/cadastro/user",
-        name: "CadastroOng",
+        name: "CadastroUser",
         component: () => import("@/views/default/CadastroUser.vue"),
       },
     ],
@@ -161,6 +161,20 @@ router.beforeEach((to, from, next) => {
   }
 });
 // Função que bloqueia o acesso a rotas que precisam de autenticação - Usuário
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuthUser)) {
+    if (localStorage.getItem("jwtUser") == null) {
+      next({
+        path: "/login/user",
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
 
 // ==> Animação - Barra de progresso
 router.beforeResolve((to, from, next) => {
