@@ -4,12 +4,16 @@ const Ong = require("../models/ong.model");
 exports.registerNewOng = async (req, res) => {
   try {
     // => Verificação se a ong já está cadastrada
-    const isOng = await Ong.find({ email: req.body.email });
+    const isOng = await Ong.find({
+      email: req.body.email
+    });
     console.log(isOng);
     if (isOng.length >= 1) {
       return res
         .status(409)
-        .json({ message: "Atenção! Este e-mail já possui registro!" });
+        .json({
+          message: "Atenção! Este e-mail já possui registro!"
+        });
     }
 
     const newOng = new Ong(req.body);
@@ -17,17 +21,27 @@ exports.registerNewOng = async (req, res) => {
     const token = await newOng.generateAuthToken(); // ==> chamando o método que criado no model
     return res
       .status(201)
-      .json({ message: "Ong cadastrada com sucesso!", ong, token });
+      .json({
+        message: "Ong cadastrada com sucesso!",
+        ong,
+        token
+      });
   } catch (err) {
-    return res.status(400).json({ message: err.message });
+    return res.status(400).json({
+      message: err.message
+    });
   }
 };
 
 // ==> Método responsável para fazer o login de uma ong
 exports.loginOng = async (req, res) => {
   try {
-    const { email } = req.body;
-    const { password } = req.body;
+    const {
+      email
+    } = req.body;
+    const {
+      password
+    } = req.body;
     const ong = await Ong.findByCredentials(email, password);
     if (!ong) {
       return res.status(401).json({
@@ -37,7 +51,11 @@ exports.loginOng = async (req, res) => {
     const token = await ong.generateAuthToken();
     return res
       .status(201)
-      .json({ message: "Usuário(a) logado com sucesso!", ong, token });
+      .json({
+        message: "Usuário(a) logado com sucesso!",
+        ong,
+        token
+      });
   } catch (err) {
     console.log(err);
   }
@@ -60,9 +78,34 @@ exports.ongAddPost = async (req, res) => {
     ong.posts.image = imagename;
 
     await ong.save();
-    return res.status(201).json({ message: "Post adicionado com sucesso!" });
+    return res.status(201).json({
+      message: "Post adicionado com sucesso!"
+    });
   } catch (err) {
     console.log(err);
-    return res.status(401).json({ message: err.message });
+    return res.status(401).json({
+      message: err.message
+    });
   }
 };
+
+
+// Método responsável por pegar todos os posts de uma ONGs
+
+exports.ongGetPosts = async (req, res) => {
+  try {
+    const id = req.userData._id;
+    const ong = await Ong.findById(id);
+    const getPosts = await ong.posts
+    console.log(getPosts)
+    ong.save(getPosts)
+    return res.status(200).json(getPosts)({
+      message: 'Todos os posts pegos com sucesso!'
+    })
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: 'Erro ao pegar todos os posts de uma ONG'
+    })
+  }
+}

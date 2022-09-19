@@ -26,4 +26,6 @@ router.get("/ongProfile", auth, ongController.returnOngProfile); // ==> rota res
 
 router.post("/addPost", auth, upload, ongController.ongAddPost); // ==> rota responsável por adicionar um post: (POST) localhost:3339/api/ong/addPost
 
+router.get('/getPosts', auth, ongController.ongGetPosts); // ==> rota responsável por adicionar um post: (GET) localhost:3339/api/ong/getPosts
+
 module.exports = router;
