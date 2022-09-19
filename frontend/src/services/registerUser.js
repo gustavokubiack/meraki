@@ -7,7 +7,7 @@ const urlUser = "/api/user";
 export default {
   async registerNewUser(newUser) {
     try {
-      const res = await axios.post(urlUser + "/register", newUser);
+      const res = await axios.post(urlUser + "/registerUser", newUser);
       const token = res.data;
 
       if (token) {
