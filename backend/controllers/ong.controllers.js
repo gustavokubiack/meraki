@@ -1,7 +1,5 @@
 const Ong = require("../models/ong.model");
 
-// ==> Async e await
-
 // ==> Método responsável por criar uma nova ong
 exports.registerNewOng = async (req, res) => {
   try {
@@ -56,11 +54,15 @@ exports.ongAddPost = async (req, res) => {
     const id = req.userData._id;
     const ong = await Ong.findById(id);
     ong.posts.push(req.body);
-    const imageName = req.file.filename;
-    ong.posts[ong.posts.length - 1].image = imageName; // ver se retorna com imagem
+
+    // adicionar imagem
+    const imagename = req.file;
+    ong.posts.image = imagename;
+
     await ong.save();
     return res.status(201).json({ message: "Post adicionado com sucesso!" });
   } catch (err) {
+    console.log(err);
     return res.status(401).json({ message: err.message });
   }
 };

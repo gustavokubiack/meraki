@@ -88,6 +88,14 @@ const routes = [
         },
       },
       {
+        path: "/adicionar-causa2",
+        name: "adicionarcausa2",
+        component: () => import("../views/admin/AdicionarCausa2.vue"),
+        meta: {
+          requiresAuthOng: true,
+        },
+      },
+      {
         path: "/admin",
         name: "PainelDeControle",
         component: () => import("../views/admin/PainelDeControle.vue"),
