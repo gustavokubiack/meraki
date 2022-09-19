@@ -99,9 +99,7 @@ exports.ongGetPosts = async (req, res) => {
     const getPosts = await ong.posts
     console.log(getPosts)
     ong.save(getPosts)
-    return res.status(200).json(getPosts)({
-      message: 'Todos os posts pegos com sucesso!'
-    })
+    return res.status(200).json(getPosts);
   } catch (err) {
     console.log(err);
     return res.status(401).json({
