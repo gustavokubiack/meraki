@@ -25,6 +25,7 @@ exports.registerNewOng = async (req, res) => {
   }
 };
 
+// ==> Método responsável para fazer o login de uma ong
 exports.loginOng = async (req, res) => {
   try {
     const { email } = req.body;
@@ -43,6 +44,23 @@ exports.loginOng = async (req, res) => {
     console.log(err);
   }
 };
+
+// ==> Método responsável por retornar os dados de uma ong
 exports.returnOngProfile = async (req, res) => {
   await res.json(req.userData);
+};
+
+// ==> Método responsável para ong adicionar um post
+exports.ongAddPost = async (req, res) => {
+  try {
+    const id = req.userData._id;
+    const ong = await Ong.findById(id);
+    ong.posts.push(req.body);
+    const imageName = req.file.filename;
+    ong.posts[ong.posts.length - 1].image = imageName; // ver se retorna com imagem
+    await ong.save();
+    return res.status(201).json({ message: "Post adicionado com sucesso!" });
+  } catch (err) {
+    return res.status(401).json({ message: err.message });
+  }
 };

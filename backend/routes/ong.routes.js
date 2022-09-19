@@ -9,4 +9,6 @@ router.post("/login", ongController.loginOng); // ==> rota responsável por faze
 
 router.get("/ongProfile", auth, ongController.returnOngProfile); // ==> rota responsável por retornar o perfil da ong: (GET) localhost:3339/api/ong/ongProfile
 
+router.post("/addPost", auth, ongController.ongAddPost); // ==> rota responsável por adicionar um post: (POST) localhost:3339/api/ong/addPost
+
 module.exports = router;
