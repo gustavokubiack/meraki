@@ -82,16 +82,118 @@ exports.ongAddPost = async (req, res) => {
   }
 };
 
-// Método responsável por pegar todos os posts de uma ONGs
+// Método responsável por pegar todos os posts de uma ONG
 
 exports.ongGetPosts = async (req, res) => {
   try {
-    const id = req.userData._id;
+    const id = req.params.id;
     const ong = await Ong.findById(id);
     const getPosts = await ong.posts;
     console.log(getPosts);
     ong.save(getPosts);
     return res.status(200).json(getPosts);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Erro ao pegar todos os posts de uma ONG",
+    });
+  }
+};
+
+// Método responsável por buscar todos os posts de animais
+exports.animalPost = async (req, res) => {
+  try {
+    const ongs = await Ong.find();
+    const posts = ongs.map((ong) => ong.posts);
+    const postsAnimais = posts.map((post) =>
+      post.filter((p) => p.chosenCause === "Animais")
+    );
+    return res.status(200).json(postsAnimais);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Erro ao pegar todos os posts de uma ONG",
+    });
+  }
+};
+
+// Método responsável por buscar todos os posts de crianças
+exports.childrenPost = async (req, res) => {
+  try {
+    const ongs = await Ong.find();
+    const posts = ongs.map((ong) => ong.posts);
+    const postsAnimais = posts.map((post) =>
+      post.filter((p) => p.chosenCause === "Crianças")
+    );
+    return res.status(200).json(postsAnimais);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Erro ao pegar todos os posts de uma ONG",
+    });
+  }
+};
+
+// Método responsável por buscar todos os posts de diversidade
+exports.diversityPost = async (req, res) => {
+  try {
+    const ongs = await Ong.find();
+    const posts = ongs.map((ong) => ong.posts);
+    const postsAnimais = posts.map((post) =>
+      post.filter((p) => p.chosenCause === "Diversidade")
+    );
+    return res.status(200).json(postsAnimais);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Erro ao pegar todos os posts de uma ONG",
+    });
+  }
+};
+
+// Método responsável por buscar todos os posts de educação
+exports.educationPost = async (req, res) => {
+  try {
+    const ongs = await Ong.find();
+    const posts = ongs.map((ong) => ong.posts);
+    const postsAnimais = posts.map((post) =>
+      post.filter((p) => p.chosenCause === "Educação")
+    );
+    return res.status(200).json(postsAnimais);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Erro ao pegar todos os posts de uma ONG",
+    });
+  }
+};
+
+// Método responsável por buscar todos os posts de idosos
+exports.agedPost = async (req, res) => {
+  try {
+    const ongs = await Ong.find();
+    const posts = ongs.map((ong) => ong.posts);
+    const postsAnimais = posts.map((post) =>
+      post.filter((p) => p.chosenCause === "Idosos")
+    );
+    return res.status(200).json(postsAnimais);
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: "Erro ao pegar todos os posts de uma ONG",
+    });
+  }
+};
+
+// Método responsável por buscar todos os posts de meio ambiente
+exports.environmentPost = async (req, res) => {
+  try {
+    const ongs = await Ong.find();
+    const posts = ongs.map((ong) => ong.posts);
+    const postsAnimais = posts.map((post) =>
+      post.filter((p) => p.chosenCause === "Meio Ambiente")
+    );
+    return res.status(200).json(postsAnimais);
   } catch (err) {
     console.log(err);
     return res.status(401).json({
