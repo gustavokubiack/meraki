@@ -79,18 +79,11 @@ const routes = [
       },
 
       // Rotas que precisam de autenticação - ONG
+
       {
         path: "/adicionar-causa",
         name: "adicionarcausa",
         component: () => import("../views/admin/AdicionarCausa.vue"),
-        meta: {
-          requiresAuthOng: true,
-        },
-      },
-      {
-        path: "/adicionar-causa2",
-        name: "adicionarcausa2",
-        component: () => import("../views/admin/AdicionarCausa2.vue"),
         meta: {
           requiresAuthOng: true,
         },

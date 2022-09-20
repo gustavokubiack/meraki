@@ -10,7 +10,7 @@ let storage = multer.diskStorage({
     cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
-    cb(null, file.filename + "_" + Date.now() + "_" + file.originalname);
+    cb(null, file.fieldname + "_" + Date.now() + "_" + file.originalname);
   },
 });
 
@@ -24,8 +24,8 @@ router.post("/login", ongController.loginOng); // ==> rota responsável por faze
 
 router.get("/ongProfile", auth, ongController.returnOngProfile); // ==> rota responsável por retornar o perfil da ong: (GET) localhost:3339/api/ong/ongProfile
 
-router.post("/addPost", auth, upload, ongController.ongAddPost); // ==> rota responsável por adicionar um post: (POST) localhost:3339/api/ong/addPost
+router.post("/addPost", upload, auth, ongController.ongAddPost); // ==> rota responsável por adicionar um post: (POST) localhost:3339/api/ong/addPost
 
-router.get('/getPosts', auth, ongController.ongGetPosts); // ==> rota responsável por adicionar um post: (GET) localhost:3339/api/ong/getPosts
+router.get("/getPosts", upload, auth, ongController.ongGetPosts); // ==> rota responsável por adicionar um post: (GET) localhost:3339/api/ong/getPosts
 
 module.exports = router;

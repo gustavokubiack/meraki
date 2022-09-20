@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="pa-8">
     <v-alert
       border="left"
       close-text="Close Alert"
@@ -9,153 +9,125 @@
       v-if="this.$route.params.message"
       >{{ this.$route.params.message }}"</v-alert
     >
-    <v-row no-gutters>
-      <v-col sm="10" class="mx-auto">
-        <v-card class="pa-5">
-          <v-card-title
-            ><span class="add-causa"> Adicionar causa </span></v-card-title
-          >
-          <v-divider></v-divider>
-          <v-form
-            ref="form"
-            @submit.prevent="submitForm"
-            class="pa-5"
-            enctype="multipart/form-data"
-          >
-            <v-file-input
-              @change="selectFile"
-              :rules="rules"
-              show-size
-              counter
-              multiple
-              label="Imagem"
-              color="#050a30"
-            ></v-file-input>
-            <v-col cols="12">
-              <v-text-field
-                maxlength="36"
-                color="#050a30"
-                label="Título"
-                v-model="post.title"
-                :rules="quantTitle"
-              ></v-text-field>
-            </v-col>
+    <v-row justify="start">
+      <v-dialog v-model="dialog" persistent max-width="600px">
+        <template v-slot:activator="{ on, attrs }">
+          <div class="d-flex justify-end">
+            <v-btn fab small color="#f8f7f2" dense v-bind="attrs" v-on="on">
+              <v-icon dark>mdi-plus</v-icon>
+            </v-btn>
+          </div>
+        </template>
+        <v-card>
+          <v-card-title>
+            <span class="text-h5">Adicionar causa</span>
+          </v-card-title>
+          <v-card-text>
+            <v-container>
+              <v-form
+                ref="form"
+                @submit.prevent="submitForm"
+                class="pa-5"
+                enctype="multipart/form-data"
+              >
+                <v-row>
+                  <v-col cols="12">
+                    <v-file-input
+                      @change="selectFile"
+                      show-size
+                      counter
+                      multiple
+                      label="Imagem"
+                      color="#050a30"
+                    ></v-file-input>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-text-field
+                      v-model="post.title"
+                      label="Título"
+                      required
+                      :rules="quantTitle"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12">
+                    <v-textarea
+                      v-model="post.description"
+                      :rules="quantDescription"
+                      minlength="100"
+                      color="#050a30"
+                      label="Descrição"
+                    ></v-textarea>
+                  </v-col>
 
-            <v-col>
-              <v-textarea
-                minlength="100"
-                color="#050a30"
-                label="Descrição"
-                v-model="post.description"
-                :rules="quantDescription"
-              ></v-textarea>
-            </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="post.street"
+                      label="Rua"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="post.numberHouse"
+                      label="Número"
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6" md="4">
+                    <v-text-field
+                      v-model="post.neighborhood"
+                      label="Bairro"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-text-field
+                      v-model="post.city"
+                      label="Cidade"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-text-field
+                      v-model="post.state"
+                      label="Estado"
+                    ></v-text-field>
+                  </v-col>
 
-            <v-col class="d-flex">
-              <v-col>
-                <v-text-field
-                  color="#050a30"
-                  label="Data"
-                  v-model="post.dateCause"
-                  :rules="rules"
-                ></v-text-field>
-              </v-col>
-
-              <v-col>
-                <v-select
-                  id="valorCausa"
-                  :items="items"
-                  color="#050a30"
-                  label="Causa"
-                  v-model="post.chosenCause"
-                  :rules="rules"
-                ></v-select>
-              </v-col>
-            </v-col>
-
-            <v-col class="d-flex">
-              <v-col>
-                <v-text-field
-                  color="#050a30"
-                  label="Estado"
-                  v-model="post.state"
-                  :rules="rules"
-                ></v-text-field>
-              </v-col>
-              <v-col>
-                <v-text-field
-                  color="#050a30"
-                  label="Cidade"
-                  v-model="post.city"
-                  :rules="rules"
-                ></v-text-field>
-              </v-col>
-            </v-col>
-
-            <v-col class="d-flex">
-              <v-col>
-                <v-text-field
-                  color="#050a30"
-                  label="Rua"
-                  v-model="post.street"
-                  :rules="rules"
-                ></v-text-field>
-              </v-col>
-
-              <v-col>
-                <v-text-field
-                  color="#050a30"
-                  label="Número"
-                  v-model="post.numberHouse"
-                  :rules="rules"
-                ></v-text-field>
-              </v-col>
-
-              <v-col>
-                <v-text-field
-                  color="#050a30"
-                  label="Bairro"
-                  v-model="post.neighborhood"
-                  :rules="rules"
-                ></v-text-field>
-              </v-col>
-            </v-col>
-
-            <v-col>
-              <v-text-field
-                color="#050a30"
-                label="Criado por"
-                v-model="post.ong"
-                :rules="rules"
-              ></v-text-field>
-            </v-col>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn dark color="#050a30">Adicionar</v-btn>
-            </v-card-actions>
-          </v-form>
+                  <v-col cols="12" sm="6">
+                    <v-text-field
+                      v-model="post.dateCause"
+                      label="Data da Causa"
+                      required
+                    ></v-text-field>
+                  </v-col>
+                  <v-col cols="12" sm="6">
+                    <v-select
+                      v-model="post.chosenCause"
+                      :items="items"
+                      label="Causa"
+                    ></v-select>
+                  </v-col>
+                </v-row>
+              </v-form>
+            </v-container>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="#050a30" text @click="dialog = false"> Fechar </v-btn>
+            <v-btn color="#050a30" text @click="(dialog = false), submitForm()">
+              Adicionar
+            </v-btn>
+          </v-card-actions>
         </v-card>
-      </v-col>
+      </v-dialog>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import Posts from "@/services/postsOng.js";
+import admin from "@/services/addPost";
 export default {
   data: () => ({
-    rules: [(value) => !!value || "Campo obrigatório"],
-
-    quantDescription: [
-      (value) =>
-        (value.length >= 104 && value.length <= 300) ||
-        "Quantidade de caracteres inválida",
-    ],
-
-    quantTitle: [
-      (value) => value.length <= 35 || "Quantidade de caracteres inválida",
-    ],
-
     items: [
       "Animais",
       "Crianças",
@@ -164,7 +136,15 @@ export default {
       "Idosos",
       "Meio Ambiente",
     ],
-
+    dialog: false,
+    quantDescription: [
+      (value) =>
+        (value.length >= 104 && value.length <= 300) ||
+        "Quantidade de caracteres inválida",
+    ],
+    quantTitle: [
+      (value) => value.length <= 35 || "Quantidade de caracteres inválida",
+    ],
     post: {
       image: "",
       title: "",
@@ -176,7 +156,6 @@ export default {
       street: "",
       numberHouse: "",
       chosenCause: "",
-      ong: "",
     },
     image: "",
   }),
@@ -197,64 +176,53 @@ export default {
       formData.append("numberHouse", this.post.numberHouse);
       formData.append("chosenCause", this.post.chosenCause);
       formData.append("ong", this.post.ong);
+      console.log("passou aqui 1");
+
       if (this.$refs.form.validate()) {
-        const response = await Posts.addPost(formData);
+        const response = await admin.addPost(formData);
+        console.log("passou aqui 2");
         this.$router.push({
           name: "PainelDeControle",
           params: { message: response.message },
         });
 
-        const causa = this.post.chosenCause;
-        console.log(causa);
-
-        switch (causa) {
-          case "Animais":
-            this.$router.push({
-              name: "CausaAnimais",
-            });
-            break;
-          case "Crianças":
-            this.$router.push({
-              name: "CausaCriança",
-            });
-            break;
-          case "Diversidade":
-            this.$router.push({
-              name: "CausaDiversidade",
-            });
-            break;
-          case "Educação":
-            this.$router.push({
-              name: "CausaEducação",
-            });
-            break;
-          case "Idosos":
-            this.$router.push({
-              name: "CausaIdosos",
-            });
-            break;
-          case "Meio Ambiente":
-            this.$router.push({
-              name: "CausaMeioAmbiente",
-            });
-            break;
-        }
+        //const causa = this.post.chosenCause;
+        //console.log(causa);
+        //
+        //switch (causa) {
+        //  case "Animais":
+        //    this.$router.push({
+        //      name: "CausaAnimais",
+        //    });
+        //    break;
+        //  case "Crianças":
+        //    this.$router.push({
+        //      name: "CausaCriança",
+        //    });
+        //    break;
+        //  case "Diversidade":
+        //    this.$router.push({
+        //      name: "CausaDiversidade",
+        //    });
+        //    break;
+        //  case "Educação":
+        //    this.$router.push({
+        //      name: "CausaEducação",
+        //    });
+        //    break;
+        //  case "Idosos":
+        //    this.$router.push({
+        //      name: "CausaIdosos",
+        //    });
+        //    break;
+        //  case "Meio Ambiente":
+        //    this.$router.push({
+        //      name: "CausaMeioAmbiente",
+        //    });
+        //    break;
+        //}
       }
     },
   },
 };
 </script>
-
-<style>
-.titulo-admin {
-  font-family: "Prata", serif;
-  font-size: 40px;
-  color: #f8f7f2;
-  text-align: center;
-}
-.add-causa {
-  color: #050a30;
-  font-family: "Cardo", serif;
-  font-size: 25px;
-}
-</style>
