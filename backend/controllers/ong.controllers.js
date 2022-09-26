@@ -32,8 +32,12 @@ exports.registerNewOng = async (req, res) => {
 // ==> Método responsável para fazer o login de uma ong
 exports.loginOng = async (req, res) => {
   try {
-    const { email } = req.body;
-    const { password } = req.body;
+    const {
+      email
+    } = req.body;
+    const {
+      password
+    } = req.body;
     const ong = await Ong.findByCredentials(email, password);
     if (!ong) {
       return res.status(401).json({
@@ -85,19 +89,7 @@ exports.ongAddPost = async (req, res) => {
 // Método responsável por pegar todos os posts de uma ONG
 
 exports.ongGetPosts = async (req, res) => {
-  try {
-    const id = req.params.id;
-    const ong = await Ong.findById(id);
-    const getPosts = await ong.posts;
-    console.log(getPosts);
-    ong.save(getPosts);
-    return res.status(200).json(getPosts);
-  } catch (err) {
-    console.log(err);
-    return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
-    });
-  }
+
 };
 
 // Método responsável por buscar todos os posts de animais
@@ -108,7 +100,13 @@ exports.animalPost = async (req, res) => {
     const postsAnimais = posts.map((post) =>
       post.filter((p) => p.chosenCause === "Animais")
     );
-    return res.status(200).json(postsAnimais);
+    let resp = []
+    for (const posts of postsAnimais) {
+      for (const post of posts) {
+        resp.push(post)
+      }
+    }
+    return res.status(200).json(resp);
   } catch (err) {
     console.log(err);
     return res.status(401).json({

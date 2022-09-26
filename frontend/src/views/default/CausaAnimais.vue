@@ -19,7 +19,7 @@
             <h3>{{ post.title }}</h3>
 
             <p class="text-justify">
-              {{ post.description.substring(0, 100) + "..." }}
+              {{ post.description }}
             </p>
           </v-card-text>
           <v-card-actions>
@@ -37,7 +37,7 @@
   </v-container>
 </template>
 <script>
-import admin from "@/services/getPost";
+import admin from "@/services/returnPost";
 
 export default {
   data() {
@@ -46,7 +46,7 @@ export default {
     };
   },
   async created() {
-    this.posts = await admin.getAllPost();
+    this.posts = await admin.animalPost();
   },
 };
 </script>

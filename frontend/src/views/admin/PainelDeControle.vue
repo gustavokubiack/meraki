@@ -19,7 +19,7 @@
             <h3>{{ post.title }}</h3>
 
             <p class="text-justify">
-              {{ post.description + "..." }}
+              {{ post.description }}
             </p>
           </v-card-text>
           <v-card-actions>
