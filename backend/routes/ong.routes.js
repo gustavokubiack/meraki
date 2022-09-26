@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const auth = require("../middlewares/auth");
 const ongController = require("../controllers/ong.controllers");
+const postController = require("../controllers/posts.controllers");
 const multer = require("multer");
 
 // upload da imagem com multer
@@ -22,12 +23,13 @@ router.post("/register", ongController.registerNewOng);
 router.post("/login", ongController.loginOng);
 router.get("/ongProfile", auth, ongController.returnOngProfile);
 router.post("/addPost", upload, auth, ongController.ongAddPost);
-router.get("/getPosts", upload, auth, ongController.ongGetPosts);
-router.get("/animalPost", ongController.animalPost);
-router.get("/childrenPost", ongController.childrenPost);
-router.get("/diversityPost", ongController.diversityPost);
-router.get("/educationPost", ongController.educationPost);
-router.get("/agedPost", ongController.agedPost);
-router.get("/environmentPost", ongController.environmentPost);
+router.get("/getPosts", upload, auth, ongController.allPostsByOng);
+
+router.get("/animalPost", postController.animalPost);
+router.get("/childrenPost", postController.childrenPost);
+router.get("/diversityPost", postController.diversityPost);
+router.get("/educationPost", postController.educationPost);
+router.get("/agedPost", postController.agedPost);
+router.get("/environmentPost", postController.environmentPost);
 
 module.exports = router;

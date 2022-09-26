@@ -11,9 +11,9 @@ const port = process.env.PORT || 3339;
 
 // importando as rotas da aplicação
 const index = require("./routes/index.routes");
-const postRouter = require("./routes/posts.routes");
+const postRouter = require("./routes/posts.routes"); // apagar essa rota depois
 const ongRouter = require("./routes/ong.routes");
-const userRouter = require('./routes/user.routes')
+const userRouter = require("./routes/user.routes");
 
 app.use(cors());
 app.use(express.json());
@@ -29,7 +29,7 @@ app.set("connection", dbConfig);
 app.use(index);
 app.use("/api/post/", postRouter);
 app.use("/api/ong/", ongRouter);
-app.use("/api/user", userRouter)
+app.use("/api/user", userRouter);
 
 // iniciando o servidor
 app.listen(port, () => {
