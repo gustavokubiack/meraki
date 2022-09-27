@@ -1,9 +1,34 @@
-import axios from 'axios'
-const url = '/api/ong/animalPost'
+import axios from "axios";
+const url = "/api/ong/";
 
 export default {
-    async animalPost() {
-        const res = await axios.get(url)
-        return res.data
-    }
-}
+  async aged() {
+    const res = await axios.get(url + "agedPost");
+    return res.data;
+  },
+
+  async animal() {
+    const res = await axios.get(url + "animalPost");
+    return res.data;
+  },
+
+  async children() {
+    const res = await axios.get(url + "childrenPost");
+    return res.data;
+  },
+
+  async diversity() {
+    const res = await axios.get(url + "diversityPost");
+    return res.data;
+  },
+
+  async education() {
+    const res = await axios.get(url + "educationPost");
+    return res.data;
+  },
+
+  async environment() {
+    const res = await axios.get(url + "environmentPost");
+    return res.data;
+  },
+};

@@ -95,3 +95,5 @@ exports.allPostsByOng = async (req, res) => {
     });
   }
 };
+
+// fazer controller para buscar um post

@@ -186,41 +186,41 @@ export default {
           params: { message: response.message },
         });
 
-        //const causa = this.post.chosenCause;
-        //console.log(causa);
-        //
-        //switch (causa) {
-        //  case "Animais":
-        //    this.$router.push({
-        //      name: "CausaAnimais",
-        //    });
-        //    break;
-        //  case "Crianças":
-        //    this.$router.push({
-        //      name: "CausaCriança",
-        //    });
-        //    break;
-        //  case "Diversidade":
-        //    this.$router.push({
-        //      name: "CausaDiversidade",
-        //    });
-        //    break;
-        //  case "Educação":
-        //    this.$router.push({
-        //      name: "CausaEducação",
-        //    });
-        //    break;
-        //  case "Idosos":
-        //    this.$router.push({
-        //      name: "CausaIdosos",
-        //    });
-        //    break;
-        //  case "Meio Ambiente":
-        //    this.$router.push({
-        //      name: "CausaMeioAmbiente",
-        //    });
-        //    break;
-        //}
+        const causa = this.post.chosenCause;
+        console.log(causa);
+
+        switch (causa) {
+          case "Animais":
+            this.$router.push({
+              name: "CausaAnimais",
+            });
+            break;
+          case "Crianças":
+            this.$router.push({
+              name: "CausaCriança",
+            });
+            break;
+          case "Diversidade":
+            this.$router.push({
+              name: "CausaDiversidade",
+            });
+            break;
+          case "Educação":
+            this.$router.push({
+              name: "CausaEducação",
+            });
+            break;
+          case "Idosos":
+            this.$router.push({
+              name: "CausaIdosos",
+            });
+            break;
+          case "Meio Ambiente":
+            this.$router.push({
+              name: "CausaMeioAmbiente",
+            });
+            break;
+        }
       }
     },
   },

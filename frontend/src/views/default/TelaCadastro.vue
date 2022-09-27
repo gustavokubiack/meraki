@@ -1,6 +1,8 @@
 <template>
   <!-- nessa tela vai ter as duas opções de login no sistema, usuário comum e as ONGs !-->
   <v-container class="pa-8">
+    <h1 class="titulo-cadastro text-center">Deseja entrar no Meraki como:</h1>
+
     <v-row justify="center" class="space mt-6">
       <v-col v-for="(cetegory, i) in categories" :key="i">
         <v-item>
@@ -62,7 +64,7 @@ export default {
 </script>
 
 <style>
-.titulo-perfil {
+.titulo-cadastro {
   text-align: center;
   color: #f8f7f2;
   font-family: "Lato", sans-serif;

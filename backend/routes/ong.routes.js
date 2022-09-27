@@ -25,11 +25,11 @@ router.get("/ongProfile", auth, ongController.returnOngProfile);
 router.post("/addPost", upload, auth, ongController.ongAddPost);
 router.get("/getPosts", upload, auth, ongController.allPostsByOng);
 
+router.get("/agedPost", postController.agedPost);
 router.get("/animalPost", postController.animalPost);
 router.get("/childrenPost", postController.childrenPost);
 router.get("/diversityPost", postController.diversityPost);
 router.get("/educationPost", postController.educationPost);
-router.get("/agedPost", postController.agedPost);
 router.get("/environmentPost", postController.environmentPost);
 
 module.exports = router;

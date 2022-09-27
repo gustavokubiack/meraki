@@ -18,15 +18,8 @@ let upload = multer({
 }).single("image");
 
 // rotas dos posts
-router.get("/all", API.fetchAllPosts);
-router.get("/animal", API.fetchAllAnimalPosts);
-router.get("/criancas", API.fetchAllChildrenPosts);
-router.get("/diversidade", API.fetchAllDiversityPosts);
-router.get("/educacao", API.fetchAllEducationPosts);
-router.get("/idosos", API.fetchAllSeniorPosts);
-router.get("/meio-ambiente", API.fetchAllEnvironmentPosts);
+
 router.get("/:id", API.fetchPostByID);
-router.post("/", upload, API.createPost);
 router.patch("/:id", upload, API.updatePost);
 router.delete("/:id", API.deletePost);
 

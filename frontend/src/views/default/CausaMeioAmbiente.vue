@@ -37,8 +37,7 @@
   </v-container>
 </template>
 <script>
-import Posts from "@/services/postsOng.js";
-
+import admin from "@/services/returnPost.js";
 export default {
   data() {
     return {
@@ -46,7 +45,7 @@ export default {
     };
   },
   async created() {
-    this.posts = await Posts.getAllEnvironmentPosts();
+    this.posts = await admin.environment();
   },
 };
 </script>

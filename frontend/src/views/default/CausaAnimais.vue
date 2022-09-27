@@ -44,7 +44,7 @@ export default {
     };
   },
   async created() {
-    this.posts = await admin.animalPost();
+    this.posts = await admin.animal();
   },
 };
 </script>
