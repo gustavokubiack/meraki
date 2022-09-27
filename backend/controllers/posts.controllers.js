@@ -19,7 +19,7 @@ exports.animalPost = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
+      message: "Erro ao buscar todos posts de Animais",
     });
   }
 };
@@ -30,11 +30,11 @@ exports.educationPost = async (req, res) => {
   try {
     const ongs = await Ong.find();
     const posts = ongs.map((ong) => ong.posts);
-    const postsAnimais = posts.map((post) =>
+    const postsEducacao = posts.map((post) =>
       post.filter((p) => p.chosenCause === "Educação")
     );
     let resp = [];
-    for (const posts of postsAnimais) {
+    for (const posts of postsEducacao) {
       for (const post of posts) {
         resp.push(post);
       }
@@ -43,7 +43,7 @@ exports.educationPost = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
+      message: "Erro ao buscar todos posts de Educação",
     });
   }
 };
@@ -54,11 +54,11 @@ exports.childrenPost = async (req, res) => {
   try {
     const ongs = await Ong.find();
     const posts = ongs.map((ong) => ong.posts);
-    const postsAnimais = posts.map((post) =>
+    const postsCriancas = posts.map((post) =>
       post.filter((p) => p.chosenCause === "Crianças")
     );
     let resp = [];
-    for (const posts of postsAnimais) {
+    for (const posts of postsCriancas) {
       for (const post of posts) {
         resp.push(post);
       }
@@ -67,7 +67,7 @@ exports.childrenPost = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
+      message: "Erro ao buscar todos posts de Crianças",
     });
   }
 };
@@ -78,11 +78,11 @@ exports.environmentPost = async (req, res) => {
   try {
     const ongs = await Ong.find();
     const posts = ongs.map((ong) => ong.posts);
-    const postsAnimais = posts.map((post) =>
+    const postsAmbiente = posts.map((post) =>
       post.filter((p) => p.chosenCause === "Meio Ambiente")
     );
     let resp = [];
-    for (const posts of postsAnimais) {
+    for (const posts of postsAmbiente) {
       for (const post of posts) {
         resp.push(post);
       }
@@ -91,7 +91,7 @@ exports.environmentPost = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
+      message: "Erro ao buscar todos posts de Meio Ambiente",
     });
   }
 };
@@ -102,11 +102,11 @@ exports.agedPost = async (req, res) => {
   try {
     const ongs = await Ong.find();
     const posts = ongs.map((ong) => ong.posts);
-    const postsAnimais = posts.map((post) =>
+    const postsIdosos = posts.map((post) =>
       post.filter((p) => p.chosenCause === "Idosos")
     );
     let resp = [];
-    for (const posts of postsAnimais) {
+    for (const posts of postsIdosos) {
       for (const post of posts) {
         resp.push(post);
       }
@@ -115,7 +115,7 @@ exports.agedPost = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
+      message: "Erro ao buscar todos posts de Idosos",
     });
   }
 };
@@ -125,11 +125,11 @@ exports.diversityPost = async (req, res) => {
   try {
     const ongs = await Ong.find();
     const posts = ongs.map((ong) => ong.posts);
-    const postsAnimais = posts.map((post) =>
+    const postsDiversidade = posts.map((post) =>
       post.filter((p) => p.chosenCause === "Diversidade")
     );
     let resp = [];
-    for (const posts of postsAnimais) {
+    for (const posts of postsDiversidade) {
       for (const post of posts) {
         resp.push(post);
       }
@@ -138,7 +138,7 @@ exports.diversityPost = async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(401).json({
-      message: "Erro ao pegar todos os posts de uma ONG",
+      message: "Erro ao buscar todos posts de Diversidade",
     });
   }
 };

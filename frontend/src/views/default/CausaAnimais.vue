@@ -18,9 +18,7 @@
           <v-card-text class="text--primary">
             <h3>{{ post.title }}</h3>
 
-            <p class="text-justify">
-              {{ post.description }}
-            </p>
+            <p>{{ post.description.substring(0, 100) + "..." }}</p>
           </v-card-text>
           <v-card-actions>
             <v-btn
