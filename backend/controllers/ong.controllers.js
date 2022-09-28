@@ -96,4 +96,17 @@ exports.allPostsByOng = async (req, res) => {
   }
 };
 
-// fazer controller para buscar um post
+// ==> Método responsável para retornar um post de uma ong
+exports.findPostById = async (req, res) => {
+  try {
+    const ong = await Ong.find();
+    const id = req.params.id;
+    const post = ong[0].posts.find((post) => post._id == id);
+    return res.status(200).json(post);
+  } catch (err) {
+    console.log(err)
+    return res.status(401).json({
+      message: "Erro ao pegar o post de uma ONG",
+    });
+  }
+};

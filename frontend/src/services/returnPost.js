@@ -31,4 +31,10 @@ export default {
     const res = await axios.get(url + "environmentPost");
     return res.data;
   },
+
+  async postById(id,){
+    const res = await axios.get(url + "post/" + id)
+    return res.data;
+
+  }
 };

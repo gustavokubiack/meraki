@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import Posts from "@/services/postsOng.js";
+import admin from '@/services/returnPost.js'
 export default {
   data() {
     return {
@@ -63,7 +63,7 @@ export default {
     };
   },
   async created() {
-    const response = await Posts.getPostByID(this.$route.params.id);
+    const response = await admin.postById(this.$route.params.id);
     this.post = response;
   },
 
