@@ -58,19 +58,14 @@ exports.returnOngProfile = async (req, res) => {
 
 // ==> Método responsável para ong adicionar um post
 exports.ongAddPost = async (req, res) => {
+  const imageName = req.file.filename;
   try {
     const id = req.userData._id;
     const ong = await Ong.findById(id);
     ong.posts.push(req.body);
-
-    // adicionar imagem
-    const image = req.file.filename;
-    if (!image) {
-      return res.status(400).json({
-        message: "Por favor, selecione uma imagem!",
-      });
-    }
+    ong.posts[ong.posts.length - 1].image = imageName;
     await ong.save();
+
     return res.status(201).json({
       message: "Post adicionado com sucesso!",
     });
@@ -104,7 +99,7 @@ exports.findPostById = async (req, res) => {
     const post = ong[0].posts.find((post) => post._id == id);
     return res.status(200).json(post);
   } catch (err) {
-    console.log(err)
+    console.log(err);
     return res.status(401).json({
       message: "Erro ao pegar o post de uma ONG",
     });

@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import admin from '@/services/returnPost.js'
+import admin from "@/services/returnPost.js";
 export default {
   data() {
     return {
@@ -63,8 +63,7 @@ export default {
     };
   },
   async created() {
-    const response = await admin.postById(this.$route.params.id);
-    this.post = response;
+    this.post = await admin.postById(this.$route.params.id);
   },
 
   methods: {

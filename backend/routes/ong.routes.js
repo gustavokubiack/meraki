@@ -23,12 +23,11 @@ router.post("/register", ongController.registerNewOng);
 router.post("/login", ongController.loginOng);
 router.get("/ongProfile", auth, ongController.returnOngProfile);
 router.post("/addPost", upload, auth, ongController.ongAddPost); // Adicionar Imagem
-router.get("/getPosts", upload, auth, ongController.allPostsByOng); // Painel de Controle
-
+router.get("/getPosts", auth, ongController.allPostsByOng); // Painel de Controle
 
 // Sem autenticação
 
-router.get ("/post/:id",  ongController.findPostById);
+router.get("/post/:id", ongController.findPostById);
 router.get("/agedPost", postController.agedPost);
 router.get("/animalPost", postController.animalPost);
 router.get("/childrenPost", postController.childrenPost);
