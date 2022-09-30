@@ -1,56 +1,30 @@
 <template>
   <v-container class="pa-8">
-    <v-card class="pa-8" id="card">
-      <v-row>
-        <v-col>
+    <v-row>
+      <v-col>
+        <h1 class="text-center">{{ post.title }}</h1>
+        <div class="d-flex justify-center pa-8">
           <v-img
             :src="`/${post.image}`"
             max-width="600"
             max-height="384"
             min-heitgh="384"
             min-width="600"
-            class="mt-2"
+            class="pa-6"
           ></v-img>
+        </div>
 
-          <div class="d-flex justify-start mt-2">
-            <h2 class="informationTitle">Outras Informações</h2>
-          </div>
-
-          <div class="informationText">
-            <div>
-              <span style="color: #050a30">Data:</span> {{ post.dateCause }}.
-            </div>
-            <div>
-              <span style="color: #050a30">Estado:</span> {{ post.state }}.
-            </div>
-            <div>
-              <span style="color: #050a30">Cidade:</span> {{ post.city }}.
-            </div>
-            <div>
-              <span style="color: #050a30">Rua:</span> {{ post.street }},
-              {{ post.numberHouse }}.
-            </div>
-          </div>
-        </v-col>
-
-        <v-col>
-          <div class="d-flex justify-center">
-            <div id="titleCard">{{ post.title }}</div>
-          </div>
-
-          <div class="d-flex justify-center">Criado por: {{ post.ong }}</div>
-
-          <div id="box" class="d-flex text-justify mt-6">
+        <div class="d-flex justify-center">
+          <v-card max-width="600" class="pa-8">
             {{ post.description }}
-          </div>
-          <v-row class="d-flex justify-center mt-14">
-            <v-btn v-show="authUser()" dark color="#050a30"
-              >Voluntariar-se</v-btn
-            >
-          </v-row>
-        </v-col>
-      </v-row>
-    </v-card>
+          </v-card>
+        </div>
+
+        <div class="d-flex justify-center pa-2">
+          <h1>Endereço</h1>
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
