@@ -91,12 +91,14 @@ exports.allPostsByOng = async (req, res) => {
   }
 };
 
-// ==> Método responsável para retornar um post de uma ong
+// ==> Buscar port por id
 exports.findPostById = async (req, res) => {
   try {
-    const ong = await Ong.find();
     const id = req.params.id;
-    const post = ong[0].posts.find((post) => post._id == id);
+    const ong = await Ong.findOne({
+      "posts._id": id,
+    });
+    const post = ong.posts.id(id);
     return res.status(200).json(post);
   } catch (err) {
     console.log(err);
