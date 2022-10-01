@@ -23,6 +23,12 @@
         <div class="d-flex justify-center pa-2">
           <h1>Endereço</h1>
         </div>
+
+        <v-row class="d-flex justify-center mt-14">
+          <v-btn v-show="authUser()" @click="volunteer()" dark color="#050a30"
+            >Voluntariar-se</v-btn
+          >
+        </v-row>
       </v-col>
     </v-row>
   </v-container>
@@ -45,6 +51,13 @@ export default {
       if (localStorage.getItem("jwtUser") != null) {
         return true;
       }
+    },
+
+    volunteer() {
+      this.$router.push({
+        name: "PerfilUser",
+        params: { id: this.$route.params.id },
+      });
     },
   },
 };

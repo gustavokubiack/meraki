@@ -54,22 +54,37 @@ exports.returnUserProfile = async (req, res) => {
 
 exports.addPost = async (req, res) => {
   try {
-    const id = req.params.id
+    const id = req.params.id;
     const ong = await Ong.findOne({
-      'posts._id': id
-    })
-    const postOng = ong.posts.id(id)
-    const user = await User.findById(req.userData._id)
-    user.chosenCause.push(postOng)
-    const post = user.chosenCause
-    await user.save()
+      "posts._id": id,
+    });
+    const postOng = ong.posts.id(id);
+    const user = await User.findById(req.userData._id);
+    user.chosenCause.push(postOng);
+    const post = user.chosenCause;
+    await user.save();
     return res.status(201).json({
       message: "Post adicionado com sucesso!",
-      post
+      post,
     });
   } catch (err) {
     return res.status(400).json({
-      message: 'Erro ao adicionar post no perfil do usuário'
-    })
+      message: "Erro ao adicionar post no perfil do usuário",
+    });
   }
-}
+};
+
+// Busca post do usuário - Causa escolhida
+
+exports.returnPost = async (req, res) => {
+  try {
+    const id = req.userData._id;
+    const user = await User.findById(id);
+    return res.status(200).json(user.chosenCause);
+  } catch (err) {
+    console.log(err);
+    return res.status(400).json({
+      message: "Erro ao buscar o post do usuário",
+    });
+  }
+};

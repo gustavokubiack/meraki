@@ -31,6 +31,13 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
+// Somente uma causa por usuário 
+userSchema.path("chosenCause").validate(function (value) {
+  return value.length <= 1;
+}, "Você só pode escolher uma causa");
+
+
+
 // ==> responsável pelo hash do password
 userSchema.pre("save", async function (next) {
   const user = this;
@@ -64,5 +71,7 @@ userSchema.statics.findByCredentials = async function (email, password) {
   }
   return user;
 };
+
+
 const User = mongoose.model("User", userSchema, "user");
 module.exports = User;
