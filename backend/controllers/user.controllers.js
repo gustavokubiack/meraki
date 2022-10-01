@@ -1,4 +1,5 @@
 const User = require("../models/user.model");
+const Ong = require("../models/ong.model");
 
 // Criar novo usuário
 
@@ -49,4 +50,26 @@ exports.returnUserProfile = async (req, res) => {
   await res.json(req.userData);
 };
 
-// Adicionar post ao perfil
+// pegar post pelo id e adicionar no perfil do usuário
+
+exports.addPost = async (req, res) => {
+  try {
+    const id = req.params.id
+    const ong = await Ong.findOne({
+      'posts._id': id
+    })
+    const postOng = ong.posts.id(id)
+    const user = await User.findById(req.userData._id)
+    user.chosenCause.push(postOng)
+    const post = user.chosenCause
+    await user.save()
+    return res.status(201).json({
+      message: "Post adicionado com sucesso!",
+      post
+    });
+  } catch (err) {
+    return res.status(400).json({
+      message: 'Erro ao adicionar post no perfil do usuário'
+    })
+  }
+}
