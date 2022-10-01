@@ -36,6 +36,8 @@
 
 <script>
 import admin from "@/services/returnPost.js";
+import swal from "sweetalert";
+import user from "@/services/chosenCause.js";
 export default {
   data() {
     return {
@@ -52,12 +54,21 @@ export default {
         return true;
       }
     },
-
-    volunteer() {
-      this.$router.push({
-        name: "PerfilUser",
-        params: { id: this.$route.params.id },
-      });
+    async volunteer() {
+      try {
+        await user.addChosenCause(this.$route.params.id);
+        swal({
+          title: "Voluntariado realizado com sucesso!",
+          text: "Agora você faz parte dessa causa!",
+          icon: "success",
+        });
+      } catch (error) {
+        swal({
+          title: "Ops!",
+          text: "Algo deu errado!",
+          icon: "error",
+        });
+      }
     },
   },
 };

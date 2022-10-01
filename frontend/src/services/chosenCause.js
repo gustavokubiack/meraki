@@ -1,22 +1,27 @@
 import axios from "axios";
-import swal from "sweetalert";
 const url = "/api/user/";
 
 export default {
-  async addChosenCause(id) {
-    try {
-      const res = await axios.post(url + "addPost", id);
-      return res.data;
-    } catch (err) {
-      swal({
-        title: "Somente uma causa por usuário!",
-        text: "Você já escolheu uma causa!",
-        icon: "error",
-      });
-    }
+  async addChosenCause(id, token) {
+    token = localStorage.getItem("jwtUser");
+    const res = await axios.post(
+      url + "addPost/" + id,
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
+    return res.data;
   },
-  async returnChosenCause() {
-    const res = await axios.get(url + "returnPost");
+  async returnChosenCause(token) {
+    token = localStorage.getItem("jwtUser");
+    const res = await axios.get(url + "returnPost", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return res.data;
   },
 };
