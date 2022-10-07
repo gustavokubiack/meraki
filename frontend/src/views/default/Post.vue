@@ -1,8 +1,8 @@
 <template>
   <v-container class="pa-8">
+    <h1 class="titulo-card text-center">{{ post.title }}</h1>
     <v-row>
       <v-col>
-        <h1 class="text-center">{{ post.title }}</h1>
         <div class="d-flex justify-center pa-8">
           <v-img
             :src="`/${post.image}`"
@@ -19,16 +19,24 @@
             {{ post.description }}
           </v-card>
         </div>
+      </v-col>
 
-        <div class="d-flex justify-center pa-2">
-          <h1>Endereço</h1>
-        </div>
+      <v-col>
+        <v-card class="info-card mt-6 pa-6">
+          <h1 class="text-center">Endereço</h1>
 
-        <v-row class="d-flex justify-center mt-14">
-          <v-btn v-show="authUser()" @click="volunteer()" dark color="#050a30"
-            >Voluntariar-se</v-btn
-          >
-        </v-row>
+          <h2>Estado: {{ post.state }}</h2>
+          <h2>Cidade: {{ post.city }}</h2>
+          <h2>Rua: {{ post.street }}, {{ post.numberHouse }}</h2>
+          <h2>Bairro: {{ post.neighborhood }}</h2>
+        </v-card>
+
+        <h1 class="mt-5 titulo-card">Contato</h1>
+
+        <v-list-group>
+          <v-list-item>Email: </v-list-item>
+          <v-list-item>Telefone:</v-list-item>
+        </v-list-group>
       </v-col>
     </v-row>
   </v-container>
@@ -75,33 +83,14 @@ export default {
 </script>
 
 <style>
-#box {
-  padding: 10px;
-  box-sizing: border-box;
-  background-color: #f8f7f2;
-  border: 1px solid #050a30;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.titulo-card {
+  color: #f8f7f2;
+  font-family: Lato;
 }
 
-#titleCard {
-  font-size: 1.5rem;
-  font-weight: bold;
+.info-card {
   color: #050a30;
-  font-family: "Lato", sans-serif;
-}
-
-.informationTitle {
-  margin-top: 10px;
-  font-family: "Lato", sans-serif;
-  color: #050a30;
-}
-
-.informationText {
-  font-size: 18px;
-  margin-top: 10px;
-}
-
-#card {
-  background-color: #f8f7f2;
+  font-family: Lato;
+  font-size: 15px;
 }
 </style>
