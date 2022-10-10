@@ -1,4 +1,5 @@
 const Ong = require("../models/ong.model");
+const fs = require("fs");
 
 // ==> Método responsável por criar uma nova ong
 exports.registerNewOng = async (req, res) => {
@@ -68,6 +69,32 @@ exports.ongAddPost = async (req, res) => {
 
     return res.status(201).json({
       message: "Post adicionado com sucesso!",
+    });
+  } catch (err) {
+    console.log(err);
+    return res.status(401).json({
+      message: err.message,
+    });
+  }
+};
+
+// Método responsável para ong excluir um post
+exports.ongDeletePost = async (req, res) => {
+  try {
+    const id = req.userData._id;
+    const ong = await Ong.findById(id);
+    const postId = req.params.id;
+    const post = ong.posts.id(postId);
+    post.remove();
+    await ong.save();
+    try {
+      // excluir a imagem do post
+      fs.unlinkSync(`./uploads/${post.image}`);
+    } catch (err) {
+      console.log(err);
+    }
+    return res.status(200).json({
+      message: "Post excluído com sucesso!",
     });
   } catch (err) {
     console.log(err);

@@ -22,8 +22,9 @@ let upload = multer({
 router.post("/register", ongController.registerNewOng);
 router.post("/login", ongController.loginOng);
 router.get("/ongProfile", auth, ongController.returnOngProfile);
-router.post("/addPost", upload, auth, ongController.ongAddPost); // Adicionar Imagem
-router.get("/getPosts", auth, ongController.allPostsByOng); // Painel de Controle
+router.post("/addPost", upload, auth, ongController.ongAddPost);
+router.delete("/deletePost/:id", upload, auth, ongController.ongDeletePost);
+router.get("/getPosts", auth, ongController.allPostsByOng);
 
 // Sem autenticação
 
