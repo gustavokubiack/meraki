@@ -38,11 +38,14 @@
           <v-list-item>Telefone:</v-list-item>
         </v-list-group>
       </v-col>
+
+      <v-btn @click="deletePost(post._id)">Excluir</v-btn>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import deletePost from "@/services/deletePost";
 import admin from "@/services/returnPost.js";
 import swal from "sweetalert";
 import user from "@/services/chosenCause.js";
@@ -70,6 +73,23 @@ export default {
           text: "Agora você faz parte dessa causa!",
           icon: "success",
         });
+      } catch (error) {
+        swal({
+          title: "Ops!",
+          text: "Algo deu errado!",
+          icon: "error",
+        });
+      }
+    },
+    async deletePost(id) {
+      try {
+        await deletePost.deletePost(id);
+        swal({
+          title: "Postagem excluída com sucesso!",
+          text: "Agora você pode criar uma nova postagem!",
+          icon: "success",
+        });
+        this.$router.push("/admin");
       } catch (error) {
         swal({
           title: "Ops!",
