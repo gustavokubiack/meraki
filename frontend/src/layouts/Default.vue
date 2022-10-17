@@ -12,8 +12,7 @@
 
       <v-spacer></v-spacer>
 
-      <!-- botão área restrita - adicionar causa -->
-
+      <!-- Botão Área Restrita - Adicionar Causa -->
       <v-btn
         to="/adicionar-causa"
         icon
@@ -126,6 +125,7 @@ export default {
       localStorage.removeItem("jwt");
       this.$router.push("/");
     },
+    
     authOng() {
       if (localStorage.getItem("jwt")) {
         this.isAuthenticated = true;

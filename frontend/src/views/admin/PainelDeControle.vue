@@ -1,5 +1,6 @@
 <template>
   <v-container class="pa-8">
+    <h1 class="titulo-painel">Painel de Controle</h1>
     <v-row class="space" align="center">
       <v-col
         col="12"
@@ -51,4 +52,11 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.titulo-painel {
+  text-align: center;
+  font-size: 40px;
+  color: #f8f7f2;
+  font-family: "Prata", serif;
+}
+</style>
