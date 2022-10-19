@@ -37,8 +37,11 @@
           <v-list-item>Email: </v-list-item>
           <v-list-item>Telefone:</v-list-item>
         </v-list-group>
-      </v-col>
 
+        <v-row class="d-flex justify-center mt-14">
+          <v-btn v-show="authUser()" @click="volunteer()">Voluntariar-se</v-btn>
+        </v-row>
+      </v-col>
     </v-row>
   </v-container>
 </template>
