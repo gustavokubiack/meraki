@@ -39,7 +39,6 @@
         </v-list-group>
       </v-col>
 
-      <v-btn @click="deletePost(post._id)">Excluir</v-btn>
     </v-row>
   </v-container>
 </template>
