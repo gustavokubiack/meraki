@@ -88,3 +88,21 @@ exports.returnPost = async (req, res) => {
     });
   }
 };
+
+// Deletar post do usuário
+exports.deletePost = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const user = await User.findById(req.userData._id);
+    const post = user.chosenCause.id(id);
+    post.remove();
+    await user.save();
+    return res.status(200).json({
+      message: "Post deletado com sucesso!",
+    });
+  } catch (err) {
+    return res.status(400).json({
+      message: "Erro ao deletar post do usuário",
+    });
+  }
+}

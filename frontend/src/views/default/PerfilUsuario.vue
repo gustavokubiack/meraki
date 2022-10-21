@@ -43,6 +43,7 @@
             >
               Detalhes
             </v-btn>
+            <v-btn color="error" @click="deletePost(post._id)">Excluir</v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -65,6 +66,10 @@ export default {
       let token = localStorage.getItem("jwtUser");
       let tokenDecoded = VueJwtDecode.decode(token);
       this.user = tokenDecoded;
+    },
+    async deletePost(id) {
+      await user.deleteChosenCause(id);
+      this.$router.push("/");
     },
   },
   async created() {

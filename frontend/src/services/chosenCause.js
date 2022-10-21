@@ -24,4 +24,14 @@ export default {
     });
     return res.data;
   },
+
+  async deleteChosenCause(id, token) {
+    token = localStorage.getItem("jwtUser");
+    const res = await axios.delete(url + "deletePost/" + id, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return res.data;
+  }
 };
