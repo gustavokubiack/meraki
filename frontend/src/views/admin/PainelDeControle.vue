@@ -31,6 +31,9 @@
             >
               Detalhes
             </v-btn>
+            <v-btn color="error" dark @click="deletePost(post._id)">
+              Excluir
+            </v-btn>
           </v-card-actions>
         </v-card>
       </v-col>
@@ -39,6 +42,7 @@
 </template>
 
 <script>
+import deletePost from "@/services/deletePost.js";
 import admin from "@/services/getPost";
 export default {
   data() {
@@ -48,6 +52,12 @@ export default {
   },
   async created() {
     this.posts = await admin.getPost();
+  },
+  methods: {
+    async deletePost(id) {
+      await deletePost.deletePost(id);
+      this.posts = await admin.getPost();
+    },
   },
 };
 </script>

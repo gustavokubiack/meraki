@@ -78,7 +78,7 @@ exports.ongAddPost = async (req, res) => {
   }
 };
 
-// Método responsável para ong excluir um post
+// Método responsável para ong EXCLUIR um post
 exports.ongDeletePost = async (req, res) => {
   try {
     const id = req.userData._id;
