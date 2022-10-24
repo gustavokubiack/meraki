@@ -1,7 +1,7 @@
 import axios from "axios";
 import swal from "sweetalert";
 
-const urlOng = "/api/ong";
+const urlOng = "api/ong";
 
 export default {
   async loginOng(user) {

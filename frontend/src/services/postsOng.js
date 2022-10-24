@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const urlPost = "/api/post";
+const urlPost = "api/post";
 
 export default class Posts {
   // pega post pelo id

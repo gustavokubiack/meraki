@@ -2,7 +2,7 @@
 import axios from "axios";
 import swal from "sweetalert";
 
-const urlUser = "/api/user";
+const urlUser = "api/user";
 
 export default {
   async loginUser(user) {

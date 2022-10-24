@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "/api/user/";
+const url = "api/user/";
 
 export default {
   async addChosenCause(id, token) {

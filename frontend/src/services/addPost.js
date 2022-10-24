@@ -1,5 +1,5 @@
 import axios from "axios";
-const urlAddPost = "/api/ong/addPost";
+const urlAddPost = "api/ong/addPost";
 
 // ONG adicionar post
 export default {

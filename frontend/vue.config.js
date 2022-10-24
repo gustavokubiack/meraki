@@ -3,6 +3,6 @@ module.exports = {
     'vuetify'
   ],
   devServer: {
-    proxy:"http://localhost:3339", 
+    proxy:"http://server-meraki.vercel.app/", 
   }
 }

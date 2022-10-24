@@ -1,5 +1,5 @@
 import axios from "axios";
-const url = "/api/ong/";
+const url = "api/ong/";
 
 export default {
   async aged() {

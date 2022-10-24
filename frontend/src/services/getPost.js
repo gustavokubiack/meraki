@@ -1,5 +1,5 @@
 import axios from "axios";
-const urlGetPost = "/api/ong/getPosts";
+const urlGetPost = "api/ong/getPosts";
 
 // ONG pegar todos os posts dela
 
