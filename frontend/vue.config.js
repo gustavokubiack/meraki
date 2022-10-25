@@ -4,8 +4,8 @@ module.exports = {
   ],
   devServer: {
     proxy:{
-      '^/api': {
-        target: 'https://server-meraki.vercel.app/',
+      '/api': {
+        target: 'https://server-meraki.vercel.app',
         ws: true,
         changeOrigin: true
     }, 
