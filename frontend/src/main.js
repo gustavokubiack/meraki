@@ -4,6 +4,8 @@ import App from "./App.vue";
 import vuetify from "./plugins/vuetify";
 import router from "./router";
 import "../node_modules/nprogress/nprogress.css";
+import "./plugins/axios"
+
 
 Vue.use(Vuelidate);
 
