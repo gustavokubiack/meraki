@@ -28,7 +28,7 @@
           <v-img
             class="white--text align-end"
             height="200px"
-            :src="`/${post.image}`"
+            :src="post.imageLocation"
           ></v-img>
           <v-card-text class="text--primary">
             <h3>{{ post.title }}</h3>

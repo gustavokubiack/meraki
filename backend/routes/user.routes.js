@@ -4,7 +4,6 @@ const auth = require("../middlewares/auth");
 const userController = require("../controllers/user.controllers");
 
 // rotas do usuário
-
 router.post("/registerUser", userController.registerNewUser);
 router.post("/loginUser", userController.loginUser);
 router.get("/userProfile", auth, userController.returnUserProfile);

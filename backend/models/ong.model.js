@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 // criptografia de dados
-
+// usar outra model - Post
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
@@ -20,14 +20,13 @@ const ongSchema = new mongoose.Schema({
       title: String,
       chosenCause: String,
       description: String,
-      image: String,
       state: String,
       city: String,
       neighborhood: String,
       street: String,
       numberHouse: String,
       dateCause: String,
-      ong: String,
+      imageLocation: String,
       created: {
         type: Date,
         default: Date.now,

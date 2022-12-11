@@ -1,6 +1,5 @@
 const Ong = require("../models/ong.model");
-const fs = require("fs");
-
+const Post = require("../models/post");
 // ==> Método responsável por criar uma nova ong
 exports.registerNewOng = async (req, res) => {
   try {
@@ -57,26 +56,30 @@ exports.returnOngProfile = async (req, res) => {
   await res.json(req.userData);
 };
 
-// ==> Método responsável para ong adicionar um post
-exports.ongAddPost = async (req, res) => {
-  const imageName = req.file.filename;
+
+exports.addPost = async (req, res) => {
+  const { location: url = "" } = req.file
   try {
     const id = req.userData._id;
     const ong = await Ong.findById(id);
     ong.posts.push(req.body);
-    ong.posts[ong.posts.length - 1].image = imageName;
+    const post = ong.posts[ong.posts.length - 1];
+    post.imageLocation = url;
     await ong.save();
-
     return res.status(201).json({
-      message: "Post adicionado com sucesso!",
+      message: "Post adicionado com sucesso!", 
     });
   } catch (err) {
     console.log(err);
-    return res.status(401).json({
+    return res.status(400).json({
       message: err.message,
     });
   }
-};
+}
+
+
+
+
 
 // Método responsável para ong EXCLUIR um post
 exports.ongDeletePost = async (req, res) => {
@@ -89,7 +92,7 @@ exports.ongDeletePost = async (req, res) => {
     await ong.save();
     try {
       // excluir a imagem do post
-      fs.unlinkSync(`./uploads/${post.image}`);
+      // fs.unlinkSync(`./uploads/${post.image}`);
     } catch (err) {
       console.log(err);
     }

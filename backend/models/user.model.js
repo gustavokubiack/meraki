@@ -18,7 +18,7 @@ const userSchema = new mongoose.Schema({
       street: String,
       numberHouse: String,
       dateCause: String,
-      ong: String,
+      imageLocation: String,
       created: {
         type: Date,
         default: Date.now,

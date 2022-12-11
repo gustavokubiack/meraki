@@ -5,7 +5,7 @@
       <v-col>
         <div class="d-flex justify-center pa-8">
           <v-img
-            :src="`/${post.image}`"
+            :src="post.imageLocation"
             max-width="600"
             max-height="384"
             min-heitgh="384"
