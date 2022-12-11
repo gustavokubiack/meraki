@@ -1,3 +1,3 @@
 import axios from "axios"
 
-axios.defaults.baseURL = "http://localhost:3339"
+axios.defaults.baseURL = "https://server-meraki.vercel.app/"
