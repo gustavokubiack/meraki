@@ -8,8 +8,8 @@
             :src="post.imageLocation"
             max-width="600"
             max-height="384"
-            min-heitgh="384"
             min-width="600"
+            min-height="384"
             class="pa-6"
           ></v-img>
         </div>
@@ -31,12 +31,12 @@
           <h2>Bairro: {{ post.neighborhood }}</h2>
         </v-card>
 
-        <h1 class="mt-5 titulo-card">Contato</h1>
+        <h1 class="titulo-card">Contato - Meraki</h1>
 
-        <v-list-group>
-          <v-list-item>Email: </v-list-item>
-          <v-list-item>Telefone:</v-list-item>
-        </v-list-group>
+        <v-card class="info-card mt-6 pa-6">
+          <h2>Telefone: (47) 99999-9999</h2>
+          <h2>Email: meraki@gmail.com</h2>
+        </v-card>
 
         <v-row class="d-flex justify-center mt-14">
           <v-btn v-show="authUser()" @click="volunteer()">Voluntariar-se</v-btn>
@@ -90,6 +90,7 @@ export default {
 .titulo-card {
   color: #f8f7f2;
   font-family: Lato;
+  margin-top: 20px;
 }
 
 .info-card {

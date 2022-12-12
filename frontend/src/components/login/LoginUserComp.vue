@@ -3,7 +3,7 @@
     <v-container class="pa-8">
       <v-card shaped class="pa-8">
         <h1 class="titulo-login d-flex justify-center">
-          É bom ter ver aqui novamente, voluntário!
+          É bom te ver aqui novamente, voluntário!
         </h1>
         <v-row>
           <v-col>
