@@ -145,6 +145,7 @@ export default {
     quantTitle: [
       (value) => value.length <= 35 || "Quantidade de caracteres inválida",
     ],
+    imageLocation: "",
     post: {
       image: "",
       title: "",
@@ -161,11 +162,11 @@ export default {
   }),
   methods: {
     selectFile(file) {
-      this.image = file[0];
+      this.post.image = file;
     },
     async submitForm() {
       const formData = new FormData();
-      formData.append("image", this.image);
+      formData.append("file", this.post.image[0]);
       formData.append("title", this.post.title);
       formData.append("description", this.post.description);
       formData.append("dateCause", this.post.dateCause);

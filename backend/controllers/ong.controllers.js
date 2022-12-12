@@ -58,6 +58,7 @@ exports.returnOngProfile = async (req, res) => {
 
 
 exports.addPost = async (req, res) => {
+  console.log(req)
   const { location: url = "" } = req.file
   try {
     const id = req.userData._id;
